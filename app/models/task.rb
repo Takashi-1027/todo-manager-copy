@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :user
-  has_many :comments, dependent: :destroy
+  # has_many :comments, dependent: :destroy
   has_many :label_maps, dependent: :destroy
   has_many :notifications, dependent: :destroy
 

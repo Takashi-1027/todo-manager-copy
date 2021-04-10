@@ -9,7 +9,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.datetime :remind_at
       t.date :start_date
       t.date :end_date
-      t.integer :task_status, null: false, default: 0
+      t.integer :status, null: false, default: 0
       t.timestamps
 
     end

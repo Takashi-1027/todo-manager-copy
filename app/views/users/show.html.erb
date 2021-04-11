@@ -1,0 +1,24 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <!--ユーザー詳細画面-->
+      <h4>マイページ</h4>
+
+      <table>
+        <tr><%= attachment_image_tag @user, :profile_image, fallback: "no-image-icon.jpg", size:"100x100"%></tr>
+        <tr>
+          <th>名前</th>
+          <th><%= @user.name %></th>
+        </tr>
+        <tr>
+          <th>紹介</th>
+          <th><%= @user.introduction %></th>
+        </tr>
+      </table>
+      <div>
+        <%= link_to "編集", edit_user_path(@user), class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>
+

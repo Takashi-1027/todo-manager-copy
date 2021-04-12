@@ -1,6 +1,6 @@
 
 <div class='daily-tasks container px-5'>
-  <h4 class="my-5">新規ルーチンタスクフォーム</h4>
+  <h4 class="my-5">新規ルーチンタスク フォーム</h4>
   <!--< %= render 'layouts/error_messages', resource: @routine_task %>-->
   <div class='row'>
     <div class='col-8'>
@@ -8,14 +8,14 @@
       <div class="my-5">
         <%= form_with model: @routine_task, url:routine_tasks_path(@routine_task.id), local: true do |f| %>
           <%= f.text_field :name %>
-          <%= f.submit "ルーチンタスク追加", class: "btn btn-success"%>
+          <%= f.submit "追加", class: "btn btn-success"%>
         <% end %>
       </div>
       <!--< %= render "layouts/routine_info", routine_tasks: @routine_tasks %>-->
     </div>
   </div>
 </div>
-<h5>ルーチンタスク（<%= routine_tasks.count %>）<i class="fas fa-thumbtack"></i></h5>
+<h5>ルーチンタスク数：<%= @routine_tasks.count %> <i class="fas fa-thumbtack"></i></h5>
 <div class="routine_list my-daily-task">
   <table class="table">
     <% @routine_tasks.each do |routine_task| %>

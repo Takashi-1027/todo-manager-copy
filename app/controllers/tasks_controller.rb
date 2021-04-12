@@ -1,25 +1,48 @@
 class TasksController < ApplicationController
-  
+  before_action :authenticate_user!
+  # before_action :ensure_correct_user, only: :index
+
   def index
+    @user = User.find(params[:user_id])
+    @tasks = Task.where(user_id: @user)
   end
 
   def new
+    @tasks = Task.new
   end
 
   def create
+    @task = Task.new(task_params)
+    @task.user_id = current_user.id
   end
-  
+
   def show
+    @task = Task.find(params[:id])
   end
 
   def edit
+    @task = Task.find(params[:id])
   end
-  
+
   def update
-  end
-  
-  
+
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to tasks_path(@task.id)
+    else
+      render "edit"
+    end
+
   def destroy
+    task = Task.find(params[:id])
+    task.destroy
+    redirect_back(fallback_location: root_path)
   end
-  
+
+  private
+    def task_params
+      params.require(:task).permit(:user_id, :title, :details, :priority, :remind_at, :start_date, :end_date, :status)
+    end
+  end
+
 end

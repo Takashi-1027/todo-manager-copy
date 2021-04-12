@@ -1,0 +1,33 @@
+<div class="title-group">
+  <div class="title">
+    <h4>ルーチンタスク編集</h4>
+  </div>
+</div>
+
+<div class="error-text">
+	<% if @routine_task.errors.any? %>
+		<h5><%= @routine_task.errors.count %>errors prohibited this routine_task from being saved:</h5>
+			<ul>
+			<% @routine_task.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+	<% end %>
+</div>
+
+<%= form_with model: @routine_task, url:routine_task_path(@routine_task), local: true do |f| %>
+  <div class="row">
+    <table>
+        <div class="form-group">
+          <tr>
+            <th class="text-left vertical" width="130px"><%= f.label :name, "ルーチンタスク" %></th>
+            <td class="text-left"><%= f.text_field :name, placeholder: "" %></td>
+          </tr>
+        </div>
+    </table>
+  </div>
+  <div class="submit-btn">
+    <%= f.submit "変更を保存" , class: "btn btn-success"  %>
+  </div>
+<% end %>
+<br>

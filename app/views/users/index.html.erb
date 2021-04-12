@@ -19,6 +19,9 @@
               <td><%= link_to user.name, user_path(user.id) %></td>
               <td><%= user.introduction %></td>
               <!--<td class="text-center">< %= routine_tasks.name %></td>-->
+              
+              <!--NomethoErrorが出たから重要でないためあと回しにする-->
+              <!--<td>< %= render "routine_tasks/info", routine_task: @routine_task %></td>-->
             </tr>
           <% end %>
         </tbody>

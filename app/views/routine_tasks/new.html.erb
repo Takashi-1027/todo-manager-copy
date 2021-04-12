@@ -1,0 +1,22 @@
+<!--この新規ルーチンタスク作成画面はいらないかもしれない-->
+
+<div class='daily-tasks container px-5'>
+  <h4 class="my-5">新規ルーチンタスク作成</h4>
+  <!--< %= render 'layouts/error_messages', resource: @routine_task %>-->
+  <div class='row'>
+    <div class='col-8'>
+      <!--<　%= render "routine", routine_tasks: @routine_tasks %>-->
+      <div class="my-5">
+        <%= form_with model: @routine_task, url:routine_tasks_path(@routine_task.id), local: true do |f| %>
+          <%= f.text_field :name %>
+          <%= f.submit "ルーチンタスク追加", class: "btn btn-success"%>
+        <% end %>
+      </div>
+      <!--< %= render "layouts/routine_info", routine_tasks: @routine_tasks %>-->
+      <div>
+        <%= link_to "マイページへ ", user_path(current_user) %>
+        <%= link_to "ルーチンタスク一覧へ", routine_tasks_path(@user), class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+</div>

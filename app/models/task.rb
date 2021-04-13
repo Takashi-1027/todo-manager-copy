@@ -7,7 +7,7 @@ class Task < ApplicationRecord
   validate :start_end_check
 
   # 優先ステータス
-  enum priority: {かなりヤバイ: 0, ヤバイ: 1, 普通: 2 , 後でもいい: 3}
+  enum priority: {かなりヤバイ: 0, ヤバイ: 1, 普通: 2 , 後でいいや: 3}
 
   # タスクの進捗ステータス
   enum status: {未着手: 0, 着手中: 1, 保留: 2 , 遅れ: 3 , 完了: 4}

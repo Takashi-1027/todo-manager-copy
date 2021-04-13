@@ -18,12 +18,11 @@
       <div>
         <%= link_to "編集", edit_user_path(@user), class: "btn btn-success" %>
       </div>
-
+      <br>
+      <br>
       <!--< %= render "routine_tasks/index", routine_tasks: @routine_tasks %>-->
-      <h5>ルーチンタスク</h5>
-      <%= link_to "＋", new_routine_task_path(@user), class: "btn btn-success" %>
-      <!--< %= link_to "ルーチンタスク一覧へ", routine_tasks_path(@user), class: "btn btn-success" %>-->
-      <%= link_to "ルーチンタスク一覧へ", routine_tasks_path(@user) %>
+      <!--<h5>ルーチンタスク</h5>-->
+      <%= link_to "ルーチンタスクの新規追加と一覧画面へ", routine_tasks_path(@user), class: "btn btn-success"  %>
     </div>
   </div>
 </div>

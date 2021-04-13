@@ -1,2 +1,39 @@
-<h5>タスク編集画面</h5>
-<p>Find me in app/views/tasks/edit.html.erb</p>
+<h4>タスク編集画面</h4>
+
+<div class= "container" >
+  <div class="row">
+    <div class="col-md-4 text-align">
+      <%= form_with model: @task, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :title, "タイトル" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :details, "詳細" %>
+          <%= f.text_area :details, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :start_date, "開始日" %>
+          <%= f.date_field :start_date %>
+        </div>
+        <div class="form-group">
+          <%= f.label :end_date, "終了日" %>
+          <%= f.date_field :end_date %>
+        </div>
+        <div class="form-group">
+          <%= f.label :remind_at, "リマインド" %>
+          <%= f.date_field :remind_at %>
+        </div>
+        <div class="form-group">
+          <%= f.label :priority, "優先度" %>
+          <%= f.select :priority, options_for_select(Task.priorities.keys),{include_blank: "" } %>
+        </div>
+        <div class="form-group">
+          <%= f.label :status, "進捗状況" %>
+          <%= f.select :status, options_for_select(Task.statuses.keys), {include_blank: "" } %>
+        </div>
+        <%= f.submit "更新", class: "btn btn-success"%>
+      <% end %>
+    </div>
+  </div>
+</div>

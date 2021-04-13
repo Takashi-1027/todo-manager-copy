@@ -1,2 +1,31 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+    <h5 class="modal-title">タスク詳細画面</h5>
+    <div class="modal-body task-show">
+      <div class="task-title form-group">
+        <%= label :title, "タイトル", class:"form-title"%> : <%= @task.title %>
+      </div>
+      <div class="task-details form-group">
+        <%= label :details, "詳細", class:"form-title"%> : <%= @task.details %>
+      </div>
+      <div class="task-details form-group">
+        <%= label :start_date, :end_date, "期間", class:"form-title"%> : <%= "#{@task.start_date}" + "～" + "#{@task.end_date}" %>
+      </div>
+      <div class="task-details form-group">
+       <%= label :remind_at, "リマインド", class:"form-title"%> : <%= @task.remind_at %>
+      </div>
+      <div class="task-details form-group">
+        <%= label :priority, "優先度", class:"form-title"%> : <%= @task.priority %>
+      </div>
+      <div class="task-details form-group">
+        <%= label :status, "進捗状況", class:"form-title"%> : <%= @task.status %>
+      </div>
+
+      <% if @task.user == current_user %>
+      <div class= "task-details-buttons">
+        <%= link_to "編集", edit_task_path(@task), class: "btn-style" %>
+        <span>|</span>
+        <%= link_to "戻る", :back, class: "btn-style-delete" %>
+      </div>
+      <% end %>
+    </div>
+<!--  </div>-->
+<!--</div>-->

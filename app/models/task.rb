@@ -1,13 +1,13 @@
 class Task < ApplicationRecord
   belongs_to :user
   # has_many :comments, dependent: :destroy
-  has_many :label_maps, dependent: :destroy
-  has_many :notifications, dependent: :destroy
-  # validate :name, presense: true
+  # has_many :label_maps, dependent: :destroy
+  # has_many :notifications, dependent: :destroy
+  # validate :title, presense: true
   validate :start_end_check
 
   # 優先ステータス
-  enum priority: {緊急: 0, 高: 1, 普通: 2 , 低: 3}
+  enum priority: {かなりヤバイ: 0, ヤバイ: 1, 普通: 2 , 後でもいい: 3}
 
   # タスクの進捗ステータス
   enum status: {未着手: 0, 着手中: 1, 保留: 2 , 遅れ: 3 , 完了: 4}

@@ -3,8 +3,8 @@ class TasksController < ApplicationController
   # before_action :ensure_correct_user, only: :index
 
   def index
-    @user = User.find(params[:user_id])
-    @tasks = Task.where(user_id: @user)
+    @tasks = Task.all
+    # @tasks = Task.where(user_id: @user)
   end
 
   def new
@@ -14,9 +14,15 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.user_id = current_user.id
+    if @task.save
+      redirect_to tasks_path(@task), notice: "タスクの登録に成功しました。"
+    else
+      render "new"
+    end
   end
 
   def show
+    # @user = User.find(params[:user_id])
     @task = Task.find(params[:id])
   end
 
@@ -44,5 +50,5 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:user_id, :title, :details, :priority, :remind_at, :start_date, :end_date, :status)
     end
-    
+
 end

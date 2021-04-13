@@ -3,7 +3,7 @@ class Task < ApplicationRecord
   # has_many :comments, dependent: :destroy
   # has_many :label_maps, dependent: :destroy
   # has_many :notifications, dependent: :destroy
-  validate :title, presense: true
+  validates :title, presence: true
   validate :start_end_check
 
   # 優先ステータス

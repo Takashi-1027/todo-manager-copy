@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_163139) do
+ActiveRecord::Schema.define(version: 2021_04_14_123145) do
+
+  create_table "label_maps", force: :cascade do |t|
+    t.integer "task_id"
+    t.integer "label_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["label_id"], name: "index_label_maps_on_label_id"
+    t.index ["task_id"], name: "index_label_maps_on_task_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "routine_tasks", force: :cascade do |t|
     t.integer "user_id", null: false

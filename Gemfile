@@ -68,7 +68,16 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-# bootstrapを追加
+#  bootstrapを追加したgem
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
+
+# デプロイ時に追加したgem
+# 本番環境でMySQLを利用するための設定
+# ・環境変数を管理する
+# ・Gemfileの最終行に、MySQLを利用するために必要なgemを
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end 

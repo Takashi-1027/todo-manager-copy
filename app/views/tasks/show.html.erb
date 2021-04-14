@@ -10,7 +10,7 @@
         <%= label :start_date, :end_date, "期間", class:"form-title"%> : <%= "#{@task.start_date}" + "～" + "#{@task.end_date}" %>
       </div>
       <div class="task-details form-group">
-       <%= label :remind_at, "リマインド", class:"form-title"%> : <%= {@task.remind_at %>
+       <%= label :remind_at, "リマインド", class:"form-title"%> : <%= @task.remind_at %>
       </div>
       <div class="task-details form-group">
         <%= label :priority, "優先度", class:"form-title"%> : <%= @task.priority %>

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :routine_tasks
   resources :users
   resources :tasks
+
+  resources :labels do
+    get 'tasks', to: 'tasks#search'
+  end
 end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

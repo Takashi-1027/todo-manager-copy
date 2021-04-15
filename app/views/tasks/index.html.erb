@@ -1,37 +1,54 @@
-<h4>マイタスク</h4>
-<table>
-  <thead>
-    <tr>
-      <th>　タイトル　</th>
-      <th>　優先度　</th>
-      <th>　進捗状況　</th>
-      <th>　期間　</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td>
-        　<%= link_to task_path(task.id) do %>
-            <%= task.title %>
+<div class="title">
+  <h4>マイタスク</h4>
+  <div class= "new-buttom">
+    <%= link_to new_task_path do %><i class="far fa-plus-square fa-3x"></i><% end %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <table>
+        <thead>
+          <tr>
+            <th width= "200px">タイトル</th>
+            <th width= "130px">優先度</th>
+            <th width= "130px">進捗状況</th>
+            <th width= "220px">期間</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tasks.each do |task| %>
+            <tr>
+              <!--<td>-->
+              <!--　< %= link_to task_path(task.id) do %>-->
+              <!--    < %= task.title %>-->
+            
+              <!--  < % end %>-->
+            
+              <td>
+              　<%= link_to task.title, task_path(task.id) %>
+              </td>
+              <td><%= task.priority %></td>
+              <td><%= task.status %></td>
+              <td><%= "#{task.start_date}" + "～" + "#{task.end_date}" %></td>
+                <% if task.user == current_user %>
+
+                  <!--<button type="button" class="btn btn-outline-primary mt-1">< %= link_to "編集" ,edit_task_path(task.id) %></button>-->
+                  <td width="70px"><%= link_to edit_task_path(task.id) do %><i class="fas fa-edit fa-2x"></i><% end %></td>
+                  <td width="70px"><%= link_to task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } do %><i class="fas fa-trash-alt fa-2x"></i><% end %></td>
+                  <!--<button type="button" class="btn btn-outline-danger mt-1">< %= link_to "削除" ,task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } %></button>-->
+                    <!--<i class="far fa-trash-alt mx-2" style="color: gray;"></i>-->
+                	<!--< % end %>-->
+
+
+              	<% end %>
+            </tr>
           <% end %>
-        </td>
-        <td>　<%= task.priority %>　</td>
-        <td>　<%= task.status %>　</td>
-        <td>　<%= "#{task.start_date}" + "～" + "#{task.end_date}" %>　</td>
-          <% if task.user == current_user %>
-          <td><span>
-            <button type="button" class="btn btn-outline-primary mt-1"><%= link_to "編集" ,edit_task_path(task.id) %></button>
-            <button type="button" class="btn btn-outline-danger mt-1"><%= link_to "削除" ,task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } %></button>
-              <!--<i class="far fa-trash-alt mx-2" style="color: gray;"></i>-->
-          	<!--< % end %>-->
-        	</span></td>
-        	<% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </tbody>
+      </table>
 
-<%= link_to "新規タスク", new_task_path %>
-
+    </div>
+  </div>
+</div>
 

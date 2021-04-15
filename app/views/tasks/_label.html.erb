@@ -1,0 +1,24 @@
+<h6> ラベルリスト </h6>
+<% @label_list.each do |list| %>
+<span>
+  <%= link_to list.label_name, label_tasks_path(label_id: list.id) %>
+  <%= "(#{list.tasks.count})" %>
+</span>
+<% end %>
+<br>
+<h6>ラベル入力</h6>
+  <%= form_with(model: @task, url: tasks_path, local: true) do |f| %>
+    <br><%= f.text_area :title %>
+    <br>
+    <br><%= "スペースを入力することで複数のタグを付けることができます。" %>
+    <br><%= "例：音楽 文芸 スポーツ" %>
+    <br><%= f.text_field :label_name %>
+    <br>
+    <%= f.submit '追加' %>
+  <% end %>
+
+<!--<hr>-->
+
+<!--h3 投稿一覧-->
+<!--- @.each do |post|-->
+<!--    = link_to post.content, post-->

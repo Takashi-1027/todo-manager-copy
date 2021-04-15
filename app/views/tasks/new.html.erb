@@ -1,8 +1,11 @@
-<h4>新規タスク画面</h4>
+<div class="title">
+  <h4>新規タスク画面</h4>
+</div>
+<!--< %= render "tasks/label" %>-->
 
 <div class= "container" >
   <div class="row">
-    <div class="col-md-4 text-align">
+    <div class="col-md-6">
       <%= form_with model: @task, local: true do |f| %>
         <div class="form-group">
           <%= f.label :title, "タイトル" %>

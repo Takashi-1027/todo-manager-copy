@@ -11,32 +11,36 @@ class TasksController < ApplicationController
 
   def search
     @label_list = Label.all                 #こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
-    @label = label.find(params[:label_id])  #クリックしたタグを取得
+    @label = Label.find(params[:label_id])  #クリックしたタグを取得
     @tasks = @label.tasks.all               #クリックしたタグに紐付けられた投稿を全て表示
+    #index
   end
 
   def new
     @task = Task.new
+    @label_list = Label.all
   end
 
   def create
+    #@task = Task.new(task_params)
+    #@task.user_id = current_user.id
+    #if @task.save
+    #  redirect_to tasks_path(@task), notice: "タスクの登録に成功しました。"
+    #else
+    #  render "new"
+    #end
+
+    label_list = params[:task][:label_name].split(nil)
     @task = Task.new(task_params)
     @task.user_id = current_user.id
     if @task.save
-      redirect_to tasks_path(@task), notice: "タスクの登録に成功しました。"
+      @task.save_label(label_list)
+      # redirect_back(fallback_location: tasks_path)
+      redirect_to tasks_path
     else
-      render "new"
+      redirect_to tasks_path
+      # redirect_back(fallback_location: tasks_path)
     end
-
-    # label_list = params[:task][:label_name].split(nil)
-    # if @task.save
-    #   @task.save_label(label_list)
-    #   # redirect_back(fallback_location: tasks_path)
-    #   redirect_to tasks_path(@task)
-    # else
-    #   redirect_to tasks_path(@task)
-    #   # redirect_back(fallback_location: tasks_path)
-    # end
   end
 
   def show

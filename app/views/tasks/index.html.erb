@@ -19,35 +19,29 @@
         </thead>
         <tbody>
           <% @tasks.each do |task| %>
+
             <tr>
-              <!--<td>-->
-              <!--　< %= link_to task_path(task.id) do %>-->
-              <!--    < %= task.title %>-->
-            
-              <!--  < % end %>-->
-            
               <td>
               　<%= link_to task.title, task_path(task.id) %>
               </td>
               <td><%= task.priority %></td>
               <td><%= task.status %></td>
               <td><%= "#{task.start_date}" + "～" + "#{task.end_date}" %></td>
-                <% if task.user == current_user %>
-
-                  <!--<button type="button" class="btn btn-outline-primary mt-1">< %= link_to "編集" ,edit_task_path(task.id) %></button>-->
-                  <td width="70px"><%= link_to edit_task_path(task.id) do %><i class="fas fa-edit fa-2x"></i><% end %></td>
-                  <td width="70px"><%= link_to task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } do %><i class="fas fa-trash-alt fa-2x"></i><% end %></td>
-                  <!--<button type="button" class="btn btn-outline-danger mt-1">< %= link_to "削除" ,task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } %></button>-->
-                    <!--<i class="far fa-trash-alt mx-2" style="color: gray;"></i>-->
-                	<!--< % end %>-->
-
-
-              	<% end %>
+              
+              <% if task.user == current_user %>
+                <!--　編集画面へ遷移するボタン-->
+                <td width="70px"><%= link_to edit_task_path(task.id) do %><i class="fas fa-edit fa-2x"></i><% end %></td>
+                <!--　削除するボタン-->
+                <td width="70px"><%= link_to task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } do %>
+                  <i class="fas fa-trash-alt fa-2x"></i><% end %>
+                </td>
+                  <!--<i class="far fa-trash-alt mx-2" style="color: gray;"></i>-->
+              	<!--< % end %>-->
+            	<% end %>
             </tr>
           <% end %>
         </tbody>
       </table>
-
     </div>
   </div>
 </div>

@@ -1,7 +1,6 @@
 <div class="title">
   <h4>新規タスク画面</h4>
 </div>
-<!--< %= render "tasks/label" %>-->
 
 <div class= "container" >
   <div class="row">
@@ -35,6 +34,13 @@
           <%= f.label :status, "進捗状況" %>
           <%= f.select :status, options_for_select(Task.statuses.keys), {include_blank: "" } %>
         </div>
+        <%= render "tasks/label" %>
+        <br>
+        <p>※複数のラベルを付けたい場合は,単語と単語の間に<br><strong>半角スペース</strong>を記入してください</p>
+        <p>(例)野球 サッカー</p>
+        <%= f.text_field :label_name %>
+        <br>
+        <br>
         <%= f.submit "登録", class: "btn btn-success"%>
       <% end %>
     </div>

@@ -1,21 +1,24 @@
-<!--<h4>タグ一覧<h4>-->
-
-<h4> 投稿一覧 <h4>
-
-<!--#タグリスト-->
-<% @label_list.each do |list| %>
-  <span>
-    <%= link_to list.label_name, label_tasks_path(task_label_id: list.id) %>
-    <%= "(#{list.tasks.count})" %>
-  </span>
-<br>
-
-<!--#タグによって絞り込んだ投稿一覧-->
-<%= "タグが ─ "%>
-<strong><%= "#{@label.label_name}" %></strong>
-<%= " ─ の投稿一覧" %>
-<br>
-<% @tasks.each do |task| %>
-  <%= link_to task.content, task %>
-<br>
-<%= link_to 'マイタスク', tasks_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h5> ラベル一覧 <h5>
+      <!--#タグリスト-->
+      <% @label_list.each do |list| %>
+        <span>
+          <%= link_to list.label_name, label_tasks_path(task_label_id: list.id) %>
+          <%= "(#{list.tasks.count})" %>
+        </span>
+      <% end %>
+      <br>
+      <br>
+      <!--#タグによって絞り込んだ投稿一覧-->
+      <%#= "タグが ─ "%>
+      <%= @label.label_name %>
+      <%#= " ─ の投稿一覧" %>
+      <br>
+      <% @tasks.each do |task| %>
+        <%= link_to task.title, task %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -21,23 +21,59 @@
 // hoge.jpgは例えで記入しているので使用したい画像ファイルを格納すればいい
 // image-urlという形にすることも忘れずに記述する。
 // body {
-//   background-image: image-url("hoge.jpg");}
+//   background-image: image-url("scott-graham-work.jpg");}
+
+//----------ページ全体----------//
+html {
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Noto Serif JP', serif;
+}
 
 //----------ホーム画面----------//
+
+body {
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  background-image: image-url("stil-vdaJJbls3xE-unsplash.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.home {
+  text-align: center;
+}
 
 .guest-login {
   text-align: right;
   color: red;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  color: white;
+  text-align: center;
+}
+
 //----------各画面のタイトル----------//
 .title {
-  width: 80%;
+  width: 230px;
+  height: 50px;
   margin: 40px 0 0 100px;
+  padding-top: 10px;
+  background-color: gray;
+  color: white;
+  text-align: center;
+  border-radius: 50px;
 }
 
 //----------新規タスク画面----------//
 .new-buttom {
-  width: 80%;
+  width: 75%;
   text-align: right;
 }

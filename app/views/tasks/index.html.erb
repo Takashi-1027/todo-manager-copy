@@ -1,9 +1,9 @@
 <div class="title">
   <h4>マイタスク</h4>
+</div>
   <div class= "new-buttom">
     <%= link_to new_task_path do %><i class="far fa-plus-square fa-3x"></i><% end %>
   </div>
-</div>
 
 <div class="container">
   <div class="row">
@@ -22,12 +22,12 @@
 
             <tr>
               <td>
-              　<%= link_to task.title, task_path(task.id) %>
+              　<strong><%= link_to task.title, task_path(task.id) %></strong>
               </td>
               <td><%= task.priority %></td>
               <td><%= task.status %></td>
               <td><%= "#{task.start_date}" + "～" + "#{task.end_date}" %></td>
-              
+
               <% if task.user == current_user %>
                 <!--　編集画面へ遷移するボタン-->
                 <td width="70px"><%= link_to edit_task_path(task.id) do %><i class="fas fa-edit fa-2x"></i><% end %></td>

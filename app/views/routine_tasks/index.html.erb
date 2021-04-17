@@ -1,6 +1,7 @@
-
-<div class='daily-tasks container px-5'>
-  <h4 class="my-5">新規ルーチンタスク フォーム</h4>
+<div class="title">
+  <h4>新規ルーチンタスク</h4>
+</div>
+<div class='container px-5'>
   <!--< %= render 'layouts/error_messages', resource: @routine_task %>-->
   <div class='row'>
     <div class='col-8'>
@@ -15,25 +16,27 @@
     </div>
   </div>
 </div>
-<h5>ルーチンタスク数：<%= @routine_tasks.count %> <i class="fas fa-thumbtack"></i></h5>
-<div class="routine_list my-daily-task">
-  <table class="table">
-    <% @routine_tasks.each do |routine_task| %>
-      <tr>
-        <td>
-          <span>
-            <%= routine_task.name %>
-          </span>
-          <% if routine_task.user == current_user %>
-          <span>
-            <button type="button" class="btn btn-outline-primary mt-1"><%= link_to "編集" ,edit_routine_task_path(routine_task.id) %></button>
-            <button type="button" class="btn btn-outline-danger mt-1"><%= link_to "削除" ,routine_task_path(routine_task), method: :delete, data: { confirm: '本当に消しますか？' } %></button>
-              <!--<i class="far fa-trash-alt mx-2" style="color: gray;"></i>-->
-          	<!--< % end %>-->
-        	</span>
-        	<% end %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+    <h5>ルーチンタスク数：<%= @routine_tasks.count %> <i class="fas fa-thumbtack"></i></h5>
+      <div class="routine_list my-daily-task">
+        <table class="table">
+          <% @routine_tasks.each do |routine_task| %>
+            <tr>
+                  <td><strong><%= routine_task.name %></strong></td>
+                  <td><% if routine_task.user == current_user %></td>
+                  <!--　編集画面へ遷移するボタン　-->
+                  <td><%= link_to edit_routine_task_path(routine_task.id) do %><i class="fas fa-edit fa-2x"></i><% end %></td>
+                  <!--　削除ボタン　-->
+                  <td><%= link_to routine_task_path(routine_task), method: :delete, data: { confirm: '本当に消しますか？' } do %><i class="fas fa-trash-alt fa-2x"></i><% end %></td>
+                    <!--<i class="far fa-trash-alt mx-2" style="color: gray;"></i>-->
+                	<!--< % end %>-->
+              	<% end %>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

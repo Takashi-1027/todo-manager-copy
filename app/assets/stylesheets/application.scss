@@ -46,8 +46,14 @@ body {
 }
 
 .guest-login {
-  text-align: right;
-  color: red;
+  margin-right: 0;
+  width: 80%;
+  text-align: center;
+  width: 230px;
+  height: 50px;
+  padding-top: 10px;
+  border-radius: 50px;
+  background-color: white;
 }
 
 footer {

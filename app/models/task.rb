@@ -13,6 +13,20 @@ class Task < ApplicationRecord
   # タスクの進捗ステータス
   enum status: {未着手: 0, 着手中: 1, 保留: 2 , 遅れ: 3 , 完了: 4}
 
+# ソート機能の定義
+  def self.sort(selection)
+    case selection
+    when "priority"
+      return all.order(priority: :ASC)
+    when "status"
+      return all.order(status: :DESC)
+    when 'new'
+      return all.order(created_at: :DESC)
+    when 'old'
+      return all.order(created_at: :ASC)
+    end
+  end
+
   def save_label(sent_labels)
     current_labels = self.labels.pluck(:label_name) unless self.labels.nil?
     old_labels = current_labels - sent_labels

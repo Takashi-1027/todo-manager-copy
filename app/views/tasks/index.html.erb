@@ -1,3 +1,12 @@
+<% if user_signed_in? %>
+  <%= form_with(url: seek_path, method: :get, local: true) do |f| %>
+    <%= f.text_field :word %>
+    <%= f.select :seek,[["完全一致","perfect_much"],["前方一致","forward_mach"],["後方一致","backward_mach"],["部分一致","pertical_mach"]] %>
+    <%= f.select :priority, options_for_select(Task.priorities.keys),{include_blank: "優先度" } %>
+    <%= f.select :status, options_for_select(Task.statuses.keys), {include_blank: "進捗状況" } %>
+    <%= f.submit '検索'  %>
+  <% end %>
+<% end %>
 <div class="title">
   <h4>マイタスク</h4>
 </div>
@@ -8,7 +17,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <table>
+      <table class="table table-hover table-inverse">
         <thead>
           <tr>
             <th width= "200px">タイトル</th>

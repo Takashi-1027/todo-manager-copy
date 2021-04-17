@@ -1,0 +1,3 @@
+class Seek < ApplicationRecord
+
+end

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :labels do
     get 'tasks', to: 'tasks#search'
   end
+
+  get 'seek' => 'seeks#seek'
 end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

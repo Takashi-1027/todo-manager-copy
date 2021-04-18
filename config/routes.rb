@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
   resources :routine_tasks
   resources :users
-  resources :tasks
+  resources :tasks do
+    put :sort
+  end
 
   resources :labels do
     get 'tasks', to: 'tasks#search'

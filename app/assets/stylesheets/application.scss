@@ -83,3 +83,11 @@ footer {
   width: 75%;
   text-align: right;
 }
+
+//---------- ドラッグ&ドロップのためのソース----------//
+//---------- カーソルのデザインを変更----------//
+.table-sortable {
+  tr.item {
+    cursor: row-resize;
+  }
+}

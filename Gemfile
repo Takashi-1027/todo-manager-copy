@@ -77,6 +77,10 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 
+# ドラッグ&ドロップ実証に必要なgem
+gem 'jquery-ui-rails'
+gem 'ranked-model'
+
 # デプロイ時に追加したgem
 # 本番環境でMySQLを利用するための設定
 # ・環境変数を管理する

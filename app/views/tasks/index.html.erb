@@ -10,7 +10,7 @@
 
   <%= form_with model: @tasks, url: tasks_path, method: :get, local: true do |form| %>
     <%= form.select :keyword, [['優先度が高い順', 'priority'],
-                                ['進捗状況', 'status'],
+                                ['進捗が進んでる順', 'status'],
                                 ['投稿が新しい順', 'new'],
                                 ['投稿が古い順', 'old'],
                               ] %>
@@ -27,7 +27,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <table class="table table-hover table-inverse">
+      <table class="table-sortable table table-hover table-inverse">
         <thead>
           <tr>
             <th width= "200px">タイトル</th>
@@ -38,8 +38,9 @@
         </thead>
         <tbody>
           <% @tasks.each do |task| %>
-
-            <tr>
+             <!--<tr>-->
+            <tr class="item" data-model_name="<%= task_sort_path(task) %>">
+            <!--<#%= content_tag "tr", id: "task-#{task.id}", class: "item", data: { model_name: task.class.name.underscore, update_url: task_sort_path(task)} do %>-->
               <td>
               　<strong><%= link_to task.title, task_path(task.id) %></strong>
               </td>
@@ -54,9 +55,8 @@
                 <td width="70px"><%= link_to task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } do %>
                   <i class="fas fa-trash-alt fa-2x"></i><% end %>
                 </td>
-                  <!--<i class="far fa-trash-alt mx-2" style="color: gray;"></i>-->
-              	<!--< % end %>-->
             	<% end %>
+            	<%# end %>
             </tr>
           <% end %>
         </tbody>
@@ -64,4 +64,3 @@
     </div>
   </div>
 </div>
-

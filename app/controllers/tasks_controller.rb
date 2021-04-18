@@ -5,8 +5,8 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
     # params[:keyword] = nil
-    # selection = params[:keyword]
-    # @tasks = Task.sort(selection)
+    selection =  params.dig(:task, :keyword)
+    @tasks = Task.sort(selection)
     @label_list = Label.all
     @task = current_user.tasks.new
   end
@@ -31,7 +31,10 @@ class TasksController < ApplicationController
       # redirect_back(fallback_location: tasks_path)
       redirect_to tasks_path
     else
-      redirect_to tasks_path
+      flash[:alert] = '未入力です。空欄に入力してください。'
+      @label_list = Label.all
+      render :new
+      # redirect_to new_task_path
       # redirect_back(fallback_location: tasks_path)
     end
   end

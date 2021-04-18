@@ -5,6 +5,8 @@ class Task < ApplicationRecord
   has_many :labels, through: :label_maps
   # has_many :notifications, dependent: :destroy
   validates :title, presence: true
+  validates :priority, presence: true
+  validates :status, presence: true
   validate :start_end_check
 
   # 優先ステータス
@@ -13,17 +15,21 @@ class Task < ApplicationRecord
   # タスクの進捗ステータス
   enum status: {未着手: 0, 着手中: 1, 保留: 2 , 遅れ: 3 , 完了: 4}
 
-# ソート機能の定義
+  # ソート機能の定義
+
   def self.sort(selection)
+  # byebug
     case selection
-    when "priority"
-      return all.order(priority: :ASC)
-    when "status"
-      return all.order(status: :DESC)
+    when nil
+      return all
+    when 'priority'
+      return order(priority: :asc)
+    when 'status'
+      return order(status: :desc)
     when 'new'
-      return all.order(created_at: :DESC)
+      return order(created_at: :desc)
     when 'old'
-      return all.order(created_at: :ASC)
+      return order(created_at: :asc)
     end
   end
 

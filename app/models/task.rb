@@ -15,10 +15,15 @@ class Task < ApplicationRecord
   # タスクの進捗ステータス
   enum status: {未着手: 0, 着手中: 1, 保留: 2 , 遅れ: 3 , 完了: 4}
 
-  # ソート機能の定義
+  
+  
+  # ドラッグ&ドロップに関係するソース
+  include RankedModel
+  ranks :row_order
 
+
+# ソート機能の定義
   def self.sort(selection)
-  # byebug
     case selection
     when nil
       return all
@@ -56,5 +61,6 @@ class Task < ApplicationRecord
       end
     end
   end
+
 
 end

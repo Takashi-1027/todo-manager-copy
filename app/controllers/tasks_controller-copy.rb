@@ -10,11 +10,11 @@ class TasksController < ApplicationController
     @label_list = Label.all
     @task = current_user.tasks.new
   end
-
+  
   def sort
     task = Task.find(params[:task_id])
-    task.update(row_order: task_params["row_order_position"])
-    head :ok # アクション実行後にViewをレンダリングしたくない時に使う
+    task.update(task_params)
+    render details: nil
   end
 
   def search

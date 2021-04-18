@@ -7,6 +7,16 @@
     <%= f.submit '検索'  %>
   <% end %>
 <% end %>
+
+  <%= form_with model: @tasks, url: tasks_path, method: :get, local: true do |form| %>
+    <%= form.select :keyword, [['優先度が高い順', 'priority'],
+                                ['進捗状況', 'status'],
+                                ['投稿が新しい順', 'new'],
+                                ['投稿が古い順', 'old'],
+                              ] %>
+    <%= form.submit "実行" %>
+  <% end %>
+
 <div class="title">
   <h4>マイタスク</h4>
 </div>

@@ -5,7 +5,7 @@
       <!--#タグリスト-->
       <% @label_list.each do |list| %>
         <span>
-          <%= link_to list.label_name, label_tasks_path(task_label_id: list.id) %>
+          <%= link_to list.label_name, label_tasks_path(list.id) %>
           <%= "(#{list.tasks.count})" %>
         </span>
       <% end %>

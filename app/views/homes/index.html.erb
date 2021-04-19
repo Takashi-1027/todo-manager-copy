@@ -1,14 +1,26 @@
-<div class= "guest-login" >
-  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
-</div>
-<body>
-  <div class="home">
-    <h1 style="color: blue;">Todo manager</h1>
-
-    <p style="color:;">今日は何をすればいいんだっけ？</p>
-
-    <p style="color:;">やることが多すぎて、何から手を付けたらいいのかわからない</p>
-
-    <P style="color:;">そんな、あなたのタスク管理をサポートします。</P>
+  <div class="background-img">
+    <!--<div class="box-guest" >-->
+  <div class="top-box-2"></div>
+  
+  <div class="gest-signin">
+    <%= link_to users_guest_sign_in_path, method: :post do %>
+      GEST ログイン<br>
+      <span>(ポートフォリオ閲覧用)</span>
+    <% end %>
   </div>
-</body>
+
+<div class="home">
+  <h4 class="home-text">Todo managerはあなたが抱える仕事を優先度と重要度を用いて分類し、タスクの優先順位を簡単に見分けられるようにサポートするアプリケーションです。</h4>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <p style="color:;">今日は何をすればいいんだっけ？</p>
+        <p style="color:;">やることが多すぎて、何から手を付けたらいいのかわからない</p>
+        <P style="color:;">そんな、あなたのタスク管理をサポートします。</P>
+        <P style="color:;">優先度や仕事の進捗状況などを表示でき。状況に合わせたカスタマイズが可能です。</P>
+        <P style="color:;">ToDoリストがシンプルに確認できて使いやすいアプリ。</P>
+      </div>
+    </div>
+  </div>
+<%= render "slidein" %>

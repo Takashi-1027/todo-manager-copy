@@ -10,13 +10,13 @@ class Task < ApplicationRecord
   validate :start_end_check
 
   # 優先ステータス
-  enum priority: {かなりヤバイ: 0, ヤバイ: 1, 普通: 2 , 後でいいや: 3}
+  enum priority: {最高: 0, 高: 1, 中: 2 , 低: 3}
 
   # タスクの進捗ステータス
   enum status: {未着手: 0, 着手中: 1, 保留: 2 , 遅れ: 3 , 完了: 4}
 
-  
-  
+
+
   # ドラッグ&ドロップに関係するソース
   include RankedModel
   ranks :row_order

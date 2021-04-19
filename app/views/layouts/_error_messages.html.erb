@@ -1,5 +1,6 @@
 <% if resource.errors.any? %>
   <div id="error_explanation">
+    <h4><%= pluralize(resource.errors.count, "error") %> prohibited this task from being saved:</h4>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>

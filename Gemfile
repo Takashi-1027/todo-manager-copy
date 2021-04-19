@@ -74,8 +74,8 @@ gem "refile-mini_magick"
 
 #  bootstrapを追加したgem
 gem 'bootstrap', '~> 4.5'
-gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
+gem 'jquery-rails'
 
 # ドラッグ&ドロップ実証に必要なgem
 gem 'jquery-ui-rails'

@@ -4,24 +4,28 @@
 </div>
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <!--<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">-->
+    <div class="col-sm-12 col-md-8 col-lg-6 float-right">
       <table>
-        <tr><%= attachment_image_tag @user, :profile_image, fallback: "no-image-icon.jpg", size:"100x100"%></tr>
+        <tr><%= attachment_image_tag @user, :profile_image, fallback: "icon_business_man01.png", size:"200x200" %></tr>
         <tr>
           <th>名前</th>
+          <th></th>
           <th><%= @user.name %></th>
         </tr>
         <tr>
           <th>紹介</th>
+          <th></th>
           <th><%= @user.introduction %></th>
         </tr>
       </table>
       <div>
         <%= link_to "編集", edit_user_path(@user), class: "btn btn-success" %>
       </div>
+    </div>
       <br>
-      <br>
-      <!--< %= render "routine_tasks/index", routine_tasks: @routine_tasks %>-->
+      <div class="col-lg-6">
+          <!--< %= render "routine_tasks/index", routine_tasks: @routine_tasks %>-->
       <!--<h5>ルーチンタスク</h5>-->
       <%= link_to "ルーチンタスクの新規追加と一覧画面へ", routine_tasks_path(@user), class: "btn btn-success"  %>
     </div>

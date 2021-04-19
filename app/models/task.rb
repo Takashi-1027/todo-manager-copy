@@ -13,7 +13,8 @@ class Task < ApplicationRecord
   enum priority: {最高: 0, 高: 1, 中: 2 , 低: 3}
 
   # タスクの進捗ステータス
-  enum status: {未着手: 0, 着手中: 1, 保留: 2 , 遅れ: 3 , 完了: 4}
+  # enum status: {未着手: 0, 着手中: 1, 保留: 2 , 遅れ: 3 , 完了: 4}
+  enum status: {未着手: 0, 保留: 1, 遅れ: 2 , 着手中: 3 , 完了: 4}
 
 
 

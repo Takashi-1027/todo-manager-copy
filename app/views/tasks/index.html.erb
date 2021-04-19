@@ -1,25 +1,31 @@
-<% if user_signed_in? %>
-  <%= form_with(url: seek_path, method: :get, local: true) do |f| %>
-    <%= f.text_field :word %>
-    <%= f.select :seek,[["完全一致","perfect_much"],["前方一致","forward_mach"],["後方一致","backward_mach"],["部分一致","pertical_mach"]] %>
-    <%= f.select :priority, options_for_select(Task.priorities.keys),{include_blank: "優先度" } %>
-    <%= f.select :status, options_for_select(Task.statuses.keys), {include_blank: "進捗状況" } %>
-    <%= f.submit '検索'  %>
-  <% end %>
-<% end %>
-
-  <%= form_with model: @tasks, url: tasks_path, method: :get, local: true do |form| %>
-    <%= form.select :keyword, [['優先度が高い順', 'priority'],
-                                ['進捗が進んでる順', 'status'],
-                                ['投稿が新しい順', 'new'],
-                                ['投稿が古い順', 'old'],
-                              ] %>
-    <%= form.submit "実行" %>
-  <% end %>
-
-<div class="title">
-  <h4>マイタスク</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-mg-3">
+      <div class="task-t">
+        <h4>タスク</h4>
+      </div>
+    </div>
+    <!--<div class="col-xs-6 col-sm-6 col-mg-6">-->
+    <div class="col-mg-3 ml-auto">
+      <div class="task-seek">
+        <% if user_signed_in? %>
+          <%= form_with(url: seek_path, method: :get, local: true) do |f| %>
+            <%= f.text_field :word %>
+            <%= f.select :seek,[["完全一致","perfect_much"],["前方一致","forward_mach"],["後方一致","backward_mach"],["部分一致","pertical_mach"]] %>
+            <%= f.select :priority, options_for_select(Task.priorities.keys),{include_blank: "優先度" } %>
+            <%= f.select :status, options_for_select(Task.statuses.keys), {include_blank: "進捗状況" } %>
+            <%= f.submit '検索'  %>
+          <% end %>
+        <% end %>
+        <%= form_with model: @tasks, url: tasks_path, method: :get, local: true do |form| %>
+          <%= form.select :keyword, [['優先度が高い順', 'priority'],['進捗が進んでる順', 'status'],['投稿が新しい順', 'new'],['投稿が古い順', 'old'],] %>
+          <%= form.submit "実行" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+
   <div class= "new-buttom">
     <%= link_to new_task_path do %><i class="far fa-plus-square fa-3x"></i><% end %>
   </div>
@@ -34,13 +40,15 @@
             <th width= "130px">優先度</th>
             <th width= "130px">進捗状況</th>
             <th width= "220px">期間</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <% @tasks.each do |task| %>
              <!--<tr>-->
             <tr class="item" data-model_name="<%= task_sort_path(task) %>">
-            <!--<#%= content_tag "tr", id: "task-#{task.id}", class: "item", data: { model_name: task.class.name.underscore, update_url: task_sort_path(task)} do %>-->
+            <!--<#%= content_tag "tr", class: "item", data: { model_name: task.class.name.underscore, update_url: task_sort_path(task)} do %>-->
               <td>
               　<strong><%= link_to task.title, task_path(task.id) %></strong>
               </td>
@@ -56,8 +64,8 @@
                   <i class="fas fa-trash-alt fa-2x"></i><% end %>
                 </td>
             	<% end %>
-            	<%# end %>
-            </tr>
+            	</tr>
+            <%# end %>
           <% end %>
         </tbody>
       </table>

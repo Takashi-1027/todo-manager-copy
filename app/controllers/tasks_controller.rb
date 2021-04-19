@@ -5,6 +5,8 @@ class TasksController < ApplicationController
   def index
     # @tasks = Task.all
     @tasks = Task.rank(:row_order)
+    # @tasks = Task.order("row_order ASC")
+
     selection =  params.dig(:task, :keyword)
     @tasks = Task.sort(selection)
     @label_list = Label.all
@@ -13,7 +15,9 @@ class TasksController < ApplicationController
 
   def sort
     task = Task.find(params[:task_id])
-    task.update(row_order: task_params["row_order_position"])
+    task.update(task_params)
+    logger.debug("更新しました")
+    logger.debug("row_orderの値" + task_params["row_order_position"])
     head :ok # アクション実行後にViewをレンダリングしたくない時に使う
   end
 

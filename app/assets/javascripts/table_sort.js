@@ -15,8 +15,11 @@ $(function(){
         dataType: 'json',
         data: params,
       });
+    console.log('更新しました');
+    console.log('row_orderの値' + String(item.index()) );
     },
-
+    
+    
     // ドラッグ幅をテーブルに合わせる
     start(e, ui) {
       let cells, tableWidth, widthForEachCell;

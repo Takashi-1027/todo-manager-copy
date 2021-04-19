@@ -1,16 +1,18 @@
 <div class="title">
   <h4>新規ルーチンタスク</h4>
 </div>
+  <%= render 'layouts/error_messages', resource: @routine_task %>
 <div class='container px-5'>
-  <!--< %= render 'layouts/error_messages', resource: @routine_task %>-->
   <div class='row'>
     <div class='col-8'>
       <!--<　%= render "routine", routine_tasks: @routine_tasks %>-->
       <div class="my-5">
+        <table>
         <%= form_with model: @routine_task, url:routine_tasks_path(@routine_task.id), local: true do |f| %>
-          <%= f.text_field :name %>
-          <%= f.submit "追加", class: "btn btn-success"%>
+          <th><%= f.text_field :name %></th>
+          <th><%= f.submit "追加", class: "btn btn-success"%></th>
         <% end %>
+        </table>
       </div>
       <!--< %= render "layouts/routine_info", routine_tasks: @routine_tasks %>-->
     </div>
@@ -29,7 +31,9 @@
                   <!--　編集画面へ遷移するボタン　-->
                   <td><%= link_to edit_routine_task_path(routine_task.id) do %><i class="fas fa-edit fa-2x"></i><% end %></td>
                   <!--　削除ボタン　-->
+                  <div id="destroy-button">
                   <td><%= link_to routine_task_path(routine_task), method: :delete, data: { confirm: '本当に消しますか？' } do %><i class="fas fa-trash-alt fa-2x"></i><% end %></td>
+                  </div>
                     <!--<i class="far fa-trash-alt mx-2" style="color: gray;"></i>-->
                 	<!--< % end %>-->
               	<% end %>

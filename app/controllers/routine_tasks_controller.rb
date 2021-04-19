@@ -19,7 +19,7 @@ class RoutineTasksController < ApplicationController
     if @routine_task.save
       redirect_back(fallback_location: root_path)
     else
-      render "new"
+      render "index"
     end
   end
 

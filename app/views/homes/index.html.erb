@@ -1,10 +1,10 @@
   <div class="background-img">
     <!--<div class="box-guest" >-->
   <div class="top-box-2"></div>
-  
+
   <div class="gest-signin">
     <%= link_to users_guest_sign_in_path, method: :post do %>
-      GEST ログイン<br>
+      ゲストログイン<br>
       <span>(ポートフォリオ閲覧用)</span>
     <% end %>
   </div>
@@ -20,7 +20,7 @@
         <P style="color:;">そんな、あなたのタスク管理をサポートします。</P>
         <P style="color:;">優先度や仕事の進捗状況などを表示でき。状況に合わせたカスタマイズが可能です。</P>
         <P style="color:;">ToDoリストがシンプルに確認できて使いやすいアプリ。</P>
+        <%= render "slidein" %>
       </div>
     </div>
   </div>
-<%= render "slidein" %>

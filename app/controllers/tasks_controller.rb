@@ -6,11 +6,14 @@ class TasksController < ApplicationController
     # @tasks = Task.all
     @tasks = Task.rank(:row_order)
     # @tasks = Task.order("row_order ASC")
-
-    selection =  params.dig(:task, :keyword)
-    @tasks = Task.sort(selection)
-    @label_list = Label.all
-    @task = current_user.tasks.new
+      @label_list = Label.all
+      @task = current_user.tasks.new
+      @sort = nil
+    if params[:task]
+      selection =  params.dig(:task, :keyword)
+      @tasks = Task.sort(selection)
+      @sort = params[:task][:keyword]
+    end
   end
 
   def sort

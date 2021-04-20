@@ -81,6 +81,9 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'ranked-model'
 
+# 楽天API
+gem 'rakuten_web_service'
+
 # コンソールでデータベースを見る時に整形して出力してくれる。
 # rails c => Hirb.enable　の順に入力する。
 gem 'hirb'

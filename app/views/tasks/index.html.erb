@@ -18,7 +18,7 @@
           <% end %>
         <% end %>
         <%= form_with model: @tasks, url: tasks_path, method: :get, local: true do |form| %>
-          <%= form.select :keyword, [['優先度が高い順', 'priority'],['進捗が進んでる順', 'status'],['投稿が新しい順', 'new'],['投稿が古い順', 'old'],] %>
+          <%= form.select :keyword, sort_form(@sort) %>
           <%= form.submit "実行" %>
         <% end %>
       </div>
@@ -26,8 +26,14 @@
   </div>
 </div>
 
+  
+
+  
   <div class= "new-buttom">
-    <%= link_to new_task_path do %><i class="far fa-plus-square fa-3x"></i><% end %>
+    <div class= "update-buttom">
+      <%= link_to tasks_path do %><i class="fas fa-redo-alt fa-3x"></i><% end %>
+    </div>
+      <%= link_to new_task_path do %><i class="far fa-plus-square fa-3x"></i><% end %>
   </div>
 
 <div class="container">

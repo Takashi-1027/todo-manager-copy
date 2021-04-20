@@ -24,6 +24,8 @@ class Task < ApplicationRecord
 
 
 # ソート機能の定義
+# 昇順(asc)  : 0,1,2,3
+# 降順(desc) : 3,2,1,0
   def self.sort(selection)
     case selection
     when nil

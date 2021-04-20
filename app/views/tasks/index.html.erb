@@ -3,6 +3,10 @@
     <div class="col-mg-3">
       <div class="task-t">
         <h4>タスク</h4>
+        <div class= "update-buttom">
+          <div class="update-memo"><p>並び替えを保存したい時は押してください。</p></div>
+          <%= link_to tasks_path do %><i class="fas fa-redo-alt fa-3x"></i><% end %>
+        </div>
       </div>
     </div>
     <!--<div class="col-xs-6 col-sm-6 col-mg-6">-->
@@ -26,13 +30,11 @@
   </div>
 </div>
 
-  
 
-  
+
+
   <div class= "new-buttom">
-    <div class= "update-buttom">
-      <%= link_to tasks_path do %><i class="fas fa-redo-alt fa-3x"></i><% end %>
-    </div>
+
       <%= link_to new_task_path do %><i class="far fa-plus-square fa-3x"></i><% end %>
   </div>
 

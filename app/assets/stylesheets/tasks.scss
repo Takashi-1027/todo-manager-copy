@@ -28,12 +28,18 @@
   margin: 20px 0 0 auto;
 }
 
-
-
-//---------- ドラッグ&ドロップのためのソース----------//
+//---------- ドラッグ＆ドロップに関連するコード----------//
 //---------- カーソルのデザインを変更----------//
 .table-sortable {
   tr.item {
     cursor: row-resize;
   }
+}
+
+.update-buttom {
+  display: flex;
+}
+.update-memo,.fa-redo-alt{
+  color: #ff0000;
+  margin: 10px 0 0 10px;
 }

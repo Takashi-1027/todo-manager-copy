@@ -68,16 +68,16 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # ユーザー認証機能
 gem 'devise'
 
-# 画像をアップロードできるようにするgem
+# 画像をアップロードできるようにする
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-#  bootstrapを追加したgem
+#  bootstrap
 gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'jquery-rails'
 
-# ドラッグ&ドロップ実証に必要なgem
+# ドラッグ&ドロップ実装
 gem 'jquery-ui-rails'
 gem 'ranked-model'
 

@@ -12,7 +12,7 @@
           <li><%= link_to " マイページ ", user_path(current_user), class: "fas fa-user nav-link text-light" %></li>
           <li><%= link_to " ユーザー ", users_path, class: "fas fa-users nav-link text-light" %></li>
           <li><%= link_to " タスク ", tasks_path(user_id: current_user.id), class: "fas fa-tasks nav-link text-light" %></li>
-          <li class= "far fa-calendar-alt nav-link text-light">カレンダー</li>
+          <!--<li class= "far fa-calendar-alt nav-link text-light fx-1" > カレンダー </li>-->
           <li class= "far fa-bell nav-link text-light">通知</li>
           <li><%= link_to " ログアウト ", destroy_user_session_path, method: :delete,class: "fas fa-sign-out-alt nav-link text-light" %></li>
         <% else %>

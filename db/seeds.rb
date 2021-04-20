@@ -17,7 +17,7 @@
       email: "test#{n + 1}@test.com",
       name: "赤羽#{n + 1}",
       introduction: "よろしくね！#{n + 1}",
-      # profile_image_id: File.open('./app/assets/images/no-image-icon.jpg'),
+      # profile_image_id: File.open('./app/assets/images/stil-vdaJJbls3xE-unsplash.jpg'),
       password: "password#{n + 1}"
     )
   end

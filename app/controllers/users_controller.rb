@@ -14,6 +14,24 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @routine_tasks = RoutineTask.where(user_id: current_user.id)
+    @routine_task = RoutineTask.new
+  end
+
+  def new
+    @routine_tasks = RoutineTask.where(user_id: current_user.id)
+    @routine_task = RoutineTask.new
+  end
+
+  def create
+    @routine_tasks = RoutineTask.where(user_id: current_user.id)
+    @routine_task = RoutineTask.new(routine_task_params)
+    @routine_task.user_id = current_user.id
+    if @routine_task.save
+      redirect_back(fallback_location: root_path)
+    else
+      render "index"
+    end
   end
 
   def update

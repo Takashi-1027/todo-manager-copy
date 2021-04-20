@@ -27,7 +27,44 @@
       <div class="col-lg-6">
           <!--< %= render "routine_tasks/index", routine_tasks: @routine_tasks %>-->
       <!--<h5>ルーチンタスク</h5>-->
-      <%= link_to "ルーチンタスクの新規追加と一覧画面へ", routine_tasks_path(@user), class: "btn btn-success"  %>
+
+      <h5>ここにルーチンタスクもしくは習慣を追加してください</h5>
+      <div class='container px-5'>
+        <div class='row'>
+          <div class='col-8'>
+            <!--<　%= render "routine", routine_tasks: @routine_tasks %>-->
+            <div class="my-5">
+              <table>
+              <%= form_with model: @routine_task, url:routine_tasks_path(@routine_task.id), local: true do |f| %>
+                <th><%= f.text_field :name %></th>
+                <th><%= f.submit "追加", class: "btn btn-success"%></th>
+              <% end %>
+              </table>
+            </div>
+            <!--< %= render "layouts/routine_info", routine_tasks: @routine_tasks %>-->
+          </div>
+        </div>
+      </div>
+          <h5>ルーチンタスク数：<%= @routine_tasks.count %> <i class="fas fa-thumbtack"></i></h5>
+      <div class="routine_list my-daily-task">
+        <table class="table">
+          <% @routine_tasks.each do |routine_task| %>
+            <tr>
+                  <td><strong><%= routine_task.name %></strong></td>
+                  <td><% if routine_task.user == current_user %></td>
+                  <!--　編集画面へ遷移するボタン　-->
+                  <!--<td>< %= link_to edit_routine_task_path(routine_task.id) do %><i class="fas fa-edit fa-2x"></i>< % end %></td>-->
+                  <!--　削除ボタン　-->
+                  <div id="destroy-button">
+                  <td><%= link_to routine_task_path(routine_task), method: :delete, data: { confirm: '本当に消しますか？' } do %><i class="fas fa-trash-alt fa-2x"></i><% end %></td>
+                  </div>
+                    <!--<i class="far fa-trash-alt mx-2" style="color: gray;"></i>-->
+                	<!--< % end %>-->
+              	<% end %>
+            </tr>
+          <% end %>
+        </table>
+      </div>
     </div>
   </div>
 </div>

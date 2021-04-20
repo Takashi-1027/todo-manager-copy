@@ -16,15 +16,15 @@ class TasksController < ApplicationController
   def sort
     task = Task.find(params[:task_id])
     task.update(task_params)
-    logger.debug("更新しました")
+    logger.debug("更新しました")                                        #ソートしたときのログを表示する。
     logger.debug("row_orderの値" + task_params["row_order_position"])
     head :ok # アクション実行後にViewをレンダリングしたくない時に使う
   end
 
   def search
-    @label_list = Label.all                 #こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
-    @label = Label.find(params[:label_id])  #クリックしたタグを取得
-    @tasks = @label.tasks.all               #クリックしたタグに紐付けられた投稿を全て表示
+    @label_list = Label.all                 #こっちの投稿一覧表示ページでも全てのタグを表示するために、ラベルを全取得
+    @label = Label.find(params[:label_id])  #クリックしたラベルを取得
+    @tasks = @label.tasks.all               #クリックしたラベルに紐付けられた投稿を全て表示
   end
 
   def new

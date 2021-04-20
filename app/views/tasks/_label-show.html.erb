@@ -1,4 +1,4 @@
-<%= "タグ: " %>
+<%= "ラベル: " %>
 <% @task_labels.each do |label| %>
   <span>
     <%= link_to label.label_name, label_tasks_path(label_id: label.id) %>

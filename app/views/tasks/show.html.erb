@@ -31,11 +31,11 @@
           <br>
           <% if @task.user == current_user %>
             <div class= "task-details-buttons">
+              <!--戻るボタン-->
+              <%= link_to tasks_path, class: "btn-style-delete" do %><i class="fas fa-backward fa-2x"></i><% end %>
+              <span>&nbsp;</span>
               <!--　編集画面へ遷移するボタン-->
               <%= link_to edit_task_path(@task), class: "btn-style" do %><i class="fas fa-edit fa-2x"></i><% end %>
-              <span>|</span>
-              <!--戻るボタン-->
-              <%= link_to tasks_path, class: "btn-style-delete" do %><i class="fas fa-step-backward fa-2x"></i><% end %>
             </div>
           <% end %>
         </div>

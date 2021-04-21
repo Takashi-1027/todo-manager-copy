@@ -3,11 +3,16 @@
     <div class="col-mg-3">
       <div class="task-t">
         <h4>タスク</h4>
-        <div class= "update-buttom">
-          <div class="update-memo"><p>並び替えを保存したい時は押してください。</p></div>
-          <%= link_to tasks_path do %><i class="fas fa-redo-alt fa-3x"></i><% end %>
-        </div>
       </div>
+        <div class= "update-buttom">
+          <!--< %= link_to tasks_path do %><i class="fas fa-redo-alt fa-2x"></i>< % end %>-->
+          <%= link_to tasks_path do %>
+            <i>タスクをドラッグ＆ドロップをするときは<br>
+              <i class="text-danger">この文</i>を押してからページを更新してください。<br>
+              順番が保存されます。</i>
+          <% end %>
+          <!--<div class="update-memo"><h5>並び替えを保存したい時は押してください。</h5></div>-->
+        </div>
     </div>
     <!--<div class="col-xs-6 col-sm-6 col-mg-6">-->
     <div class="col-mg-3 ml-auto">
@@ -29,25 +34,19 @@
     </div>
   </div>
 </div>
-
-
-
-
-  <div class= "new-buttom">
-
-      <%= link_to new_task_path do %><i class="far fa-plus-square fa-3x"></i><% end %>
-  </div>
-
+<div class= "new-buttom">
+    <%= link_to new_task_path do %><i class="far fa-plus-square fa-3x"></i><% end %>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
       <table class="table-sortable table table-hover table-inverse">
         <thead>
           <tr>
-            <th width= "200px">タイトル</th>
-            <th width= "130px">優先度</th>
-            <th width= "130px">進捗状況</th>
-            <th width= "220px">期間</th>
+            <th width= "250px">タイトル</th>
+            <th width= "250px">優先度</th>
+            <th width= "250px">進捗状況</th>
+            <th width= "250px">期間</th>
             <th></th>
             <th></th>
           </tr>
@@ -66,10 +65,17 @@
 
               <% if task.user == current_user %>
                 <!--　編集画面へ遷移するボタン-->
-                <td width="70px"><%= link_to edit_task_path(task.id) do %><i class="fas fa-edit fa-2x"></i><% end %></td>
+                <!--<td width="70px">< %= link_to edit_task_path(task.id) do %><i class="fas fa-edit fa-2x"></i>< % end %></td>-->
                 <!--　削除するボタン-->
-                <td width="70px"><%= link_to task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } do %>
-                  <i class="fas fa-trash-alt fa-2x"></i><% end %>
+                <!--<td width="70px">< %= link_to task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } do %>-->
+                <!--  <i class="fas fa-trash-alt fa-2x"></i>< % end %>-->
+                <!--</td>-->
+                <!--　編集画面へ遷移するボタン-->
+                <td width="250px"><%= link_to edit_task_path(task.id) do %><i class="fas fa-edit fa-2x"></i><% end %>
+                <!--　削除するボタン-->
+                <span>&nbsp;</span>
+                <%= link_to task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } do %>
+                <i class="fas fa-trash-alt fa-2x"></i><% end %>
                 </td>
             	<% end %>
             	</tr>

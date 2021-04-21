@@ -15,7 +15,7 @@
  */
 
   @import "bootstrap";
-  
+
 // デプロイ後に画像ファイルを使用したいなら以下のように記述すること
 // hoge.jpgは例えで記入しているので使用したい画像ファイルを格納すればいい
 // image-urlという形にすることも忘れずに記述する。
@@ -38,35 +38,36 @@
 
 //----------ヘッダー----------//
 
-// main {
-//   // height: calc(100vh - 100px);
-//   height: 100vh;
-// }
-
-.wrapper{
-    min-height: 100vh;
-    position: relative;/*←相対位置*/
-    padding-bottom: 120px;/*←footerの高さ*/
-    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+main {
+  // height: calc(100vh - 100px);
+  height: 100vh;
 }
+
+// .wrapper{
+//     min-height: 100vh;
+//     position: relative;/*←相対位置*/
+//     padding-bottom: 120px;/*←footerの高さ*/
+//     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+// }
 //----------フッター----------//
-// .footer {
-//   // margin-top: auto;
-//   background-color: #383838;
-//   height: 50px;
-//   width: 100%;
-//   text-aline: center;
-// }
-footer{
-    width: 100%;
-    background-color: #212121;
-    color: #fff;
-    text-align: center;
-    padding: 30px 0;
-
- position: absolute;/*←絶対位置*/
-    bottom: 0; /*下に固定*/
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1% 0;
+  background-color: #fff;
 }
+// footer{
+//     width: 100%;
+//     background-color: #212121;
+//     color: #fff;
+//     text-align: center;
+//     padding: 30px 0;
+
+// position: absolute;/*←絶対位置*/
+//     bottom: 0; /*下に固定*/
+// }
 //----------ホーム画面----------//
 
 

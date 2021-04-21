@@ -1,6 +1,20 @@
 <% @books.each do |book| %>
-  <%= book.title %>
-  <%= book.author %>
-  <%= book.item_caption %>
-  <%= link_to (image_tag(book.medium_image_url)), book.item_url %>
+  <div class="rakubook">
+    <div class="rakubook-img">
+      <br>
+      <%= link_to (image_tag(book.medium_image_url)), book.item_url %><br>
+      <br>
+    </div>
+    <div class="rakubook-details">
+      <ul>
+        ＜タイトル＞<br>
+        <p><%= book.title %></p>
+        ＜著者＞<br>
+        <p><%= book.author %></p>
+        ＜詳細＞<br>
+        <p><%= book.item_caption %></p>
+      </ul>
+    </div>
+  </div>
+  <br>
 <% end %>

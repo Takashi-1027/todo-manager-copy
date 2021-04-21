@@ -1,0 +1,18 @@
+// Place all the styles related to the tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search-box {
+  width: 500px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.rakubook {
+  display: flex;
+  flex-wrap: wrap;
+  img {
+    width: 150px;
+    height: auto;
+  }
+}

@@ -1,11 +1,24 @@
-<div class="search-box">
-  <%= form_with url: books_search_path, method: :get, local: true do |f| %>
-      <div class="form-group">
-        <%= f.text_field :keyword, class: "form-control" %>
-        <%= f.submit '本の題名を検索', class: "form-control btn btn-success" %>
-      </div>
-  <% end %>
+<div class="title">
+  <h4>楽天書籍検索</h4>
 </div>
-<% if @books.present? %>
-  <%= render 'book' %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-7 offset-3">
+      <div class="search-box">
+        <%= form_with url: books_search_path, method: :get, local: true do |f| %>
+          <div class="form-group">
+            <%= f.text_field :keyword, class: "form-control" %>
+            <th><%= f.submit '本の題名を検索', class: "form-control btn btn-success" %></th>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-7 col-xs-7 offset-3">
+      <% if @books.present? %>
+        <%= render 'book' %>
+      <% end %>
+    </div>
+  </div>
+</div>

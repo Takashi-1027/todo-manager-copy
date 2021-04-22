@@ -88,6 +88,8 @@ gem 'rakuten_web_service'
 # rails c => Hirb.enable　の順に入力する。
 gem 'hirb'
 
+gem 'whenever', require: false
+
 # デプロイ時に追加したgem
 # 本番環境でMySQLを利用するための設定
 # ・環境変数を管理する

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # get 'notifications/index'
+  # get 'notifications/show'
+  # get 'notifications/destroy'
+  # get 'notifications/destroy-all'
   # devise_for :users <- ゲストユーザーが未実装の時のコード
 
   # ゲストとログイン機能実装
@@ -18,12 +22,18 @@ Rails.application.routes.draw do
     put :sort
   end
 
+  #タスクに付けるラベルの検索に使用している。
   resources :labels do
     get 'tasks', to: 'tasks#search'
   end
 
-  get 'seek' => 'seeks#seek'
+  # タスクの検索に使用している。
+  get 'seek', to: 'seeks#seek'
 
+  resources :notifications, only: [:index, :show, :destroy]
+  delete 'notifications/destroy_all' , to: 'notifications#destroy_all'
+
+  # 楽天APIでの書籍検索に利用している。
   get 'books/search'
 end
 

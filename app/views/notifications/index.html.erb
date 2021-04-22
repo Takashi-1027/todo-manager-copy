@@ -1,0 +1,19 @@
+<div class="title">
+  <h4>通知一覧</h4>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <table class="table-sortable table table-hover table-inverse">
+        <%= @say %>
+        <% @notifications.each do |n| %>
+        <% n.action %>
+        <% n.checked %>
+        <%= link_to task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } do %>
+        <i class="fas fa-trash-alt fa-2x"></i><% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_18_064013) do
+ActiveRecord::Schema.define(version: 2021_04_21_074135) do
 
   create_table "label_maps", force: :cascade do |t|
     t.integer "task_id"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2021_04_18_064013) do
 
   create_table "labels", force: :cascade do |t|
     t.string "label_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "task_id"
+    t.string "action"
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -26,20 +26,33 @@ class Task < ApplicationRecord
 # ソート機能の定義
 # 昇順(asc)  : 0,1,2,3
 # 降順(desc) : 3,2,1,0
-  def self.sort(selection)
+  scope :order_by_key, -> (selection){
     case selection
-    when nil
-      return all
     when 'priority'
-      return order(priority: :asc)
+     order(priority: :asc)
     when 'status'
-      return order(status: :desc)
+     order(status: :desc)
     when 'new'
-      return order(created_at: :desc)
+     order(created_at: :desc)
     when 'old'
-      return order(created_at: :asc)
-    end
-  end
+     order(created_at: :asc)
+    end }
+
+  # def self.sort(selection)
+    # case selection
+    # when nil
+    #   return all
+    # when 'priority'
+    #   return order(priority: :asc)
+    # when 'status'
+    #   return order(status: :desc)
+    # when 'new'
+    #   return order(created_at: :desc)
+    # when 'old'
+    #   return order(created_at: :asc)
+    # end
+  # end
+
 
   def save_label(sent_labels)
     current_labels = self.labels.pluck(:label_name) unless self.labels.nil?

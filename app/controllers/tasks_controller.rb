@@ -3,16 +3,17 @@ class TasksController < ApplicationController
   # before_action :ensure_correct_user, only: :index
 
   def index
-    # @tasks = Task.all
-    @tasks = Task.rank(:row_order)
-    
-    # @tasks = Task.order("row_order ASC")
+      @user = current_user
+      @tasks = @user.tasks.rank(:row_order)
       @label_list = Label.all
       @task = current_user.tasks.new
       @sort = nil
     if params[:task]
       selection =  params.dig(:task, :keyword)
-      @tasks = Task.sort(selection)
+      # @tasks = Task.sort(selection)
+      # @tasks = @tasks.where(user_id: current_user)
+
+      @tasks = Task.where(user_id: current_user).order_by_key(selection)
       @sort = params[:task][:keyword]
     end
   end
@@ -42,14 +43,11 @@ class TasksController < ApplicationController
     @task.user_id = current_user.id
     if @task.save
       @task.save_label(label_list)
-      # redirect_back(fallback_location: tasks_path)
       redirect_to tasks_path
     else
       flash[:alert] = '未入力です。空欄に入力してください。'
       @label_list = Label.all
       render :new
-      # redirect_to new_task_path
-      # redirect_back(fallback_location: tasks_path)
     end
   end
 

@@ -1,41 +1,37 @@
+<!--ユーザー詳細画面-->
 <div class="title">
-  <!--ユーザー詳細画面-->
   <h4>マイページ</h4>
 </div>
 <div class='container'>
   <div class='row'>
     <!--<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">-->
-    <div class="col-sm-12 col-md-8 col-lg-6 float-right">
-      <table>
-        <tr><%= attachment_image_tag @user, :profile_image, fallback: "icon_business_man01.png", size:"200x200" %></tr>
-        <tr>
-          <th>名前</th>
-          <th></th>
-          <th><%= @user.name %></th>
-        </tr>
-        <tr>
-          <th>紹介</th>
-          <th></th>
-          <th><%= @user.introduction %></th>
-        </tr>
-      </table>
+    <div class="offset-2 col-sm-12 col-md-6 col-lg-4">
+      <%= attachment_image_tag @user, :profile_image, fallback: "icon_business_man01.png", size:"200x200" %>
+      <div class="user-show">
+          <div class='user-name'>
+            <h5>名前：</h5>
+            <h5><%= @user.name %></h5>
+          </div>
+          <div class='user-introduction'>
+            <h5>紹介：</h5>
+            <h5><%= @user.introduction %></h5>
+          </div>
+        </div>
       <div>
-        <%= link_to "編集", edit_user_path(@user), class: "btn btn-success" %>
+        <%= link_to "編集", edit_user_path(@user), class: "btn btn-success " %>
       </div>
     </div>
-      <br>
-      <div class="col-lg-6">
-          <!--< %= render "routine_tasks/index", routine_tasks: @routine_tasks %>-->
-      <h5>ここにルーチンタスクもしくは小さな習慣を追加して下さい</h5>
+    <br>
+    <div class="col-lg-4">
+    <h5>ここにルーチンタスクもしくは<br>小さな習慣を追加して下さい</h5>
       <div class='container px-5'>
         <div class='row'>
           <div class='col-8'>
-            <!--<　%= render "routine", routine_tasks: @routine_tasks %>-->
             <div class="my-5">
               <table>
               <%= form_with model: @routine_task, url:routine_tasks_path(@routine_task.id), local: true do |f| %>
                 <th><%= f.text_field :name %></th>
-                <th><%= f.submit "追加", class: "btn btn-success"%></th>
+                <th><%= f.submit "追加", class: "btn btn-success btn-sm"%></th>
               <% end %>
               </table>
             </div>
@@ -43,22 +39,26 @@
           </div>
         </div>
       </div>
-          <h5>ルーチンタスク数：<%= @routine_tasks.count %> <i class="fas fa-thumbtack"></i></h5>
+      <h5>ルーチンタスク数：<%= @routine_tasks.count %> <i class="fas fa-thumbtack"></i></h5>
+      <br>
       <div class="routine_list my-daily-task">
         <table class="table">
           <% @routine_tasks.each do |routine_task| %>
             <tr>
-                  <td><strong><%= routine_task.name %></strong></td>
-                  <td><% if routine_task.user == current_user %></td>
-                  <!--　編集画面へ遷移するボタン　-->
-                  <!--<td>< %= link_to edit_routine_task_path(routine_task.id) do %><i class="fas fa-edit fa-2x"></i>< % end %></td>-->
-                  <!--　削除ボタン　-->
-                  <div id="destroy-button">
-                  <td><%= link_to routine_task_path(routine_task), method: :delete, data: { confirm: '本当に消しますか？' } do %><i class="fas fa-trash-alt fa-2x"></i><% end %></td>
-                  </div>
-                    <!--<i class="far fa-trash-alt mx-2" style="color: gray;"></i>-->
-                	<!--< % end %>-->
-              	<% end %>
+              <td><strong><%= routine_task.name %></strong></td>
+              <td><% if routine_task.user == current_user %></td>
+                <!--　編集画面へ遷移するボタン　-->
+                <!--<td>< %= link_to edit_routine_task_path(routine_task.id) do %><i class="fas fa-edit fa-2x"></i>< % end %></td>-->
+                <!--　削除ボタン　-->
+                <div id="destroy-button">
+                  <td>
+                    <%= link_to routine_task_path(routine_task), method: :delete, data: { confirm: '本当に消しますか？' } do %>
+                      <i class="fas fa-trash-alt fa-2x"></i>
+                    <% end %>
+                  </td>
+                </div>
+              	<!--< % end %>-->
+            	<% end %>
             </tr>
           <% end %>
         </table>

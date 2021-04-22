@@ -1,7 +1,8 @@
 class NotificationsController < ApplicationController
-  
+  before_action :authenticate_user!
   def index
-    @notifications = current_user.notifications.find([paramas:id])
+    # @user = current_user
+    @notifications = Notification.all
   end
 
   def show

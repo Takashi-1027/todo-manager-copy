@@ -56,20 +56,15 @@
              <!--<tr>-->
             <tr class="item" data-model_name="<%= task_sort_path(task) %>">
             <!--<#%= content_tag "tr", class: "item", data: { model_name: task.class.name.underscore, update_url: task_sort_path(task)} do %>-->
-              <td>
-              　<strong><%= link_to task.title, task_path(task.id) %></strong>
-              </td>
-              <td><%= task.priority %></td>
-              <td><%= task.status %></td>
-              <td><%= "#{task.start_date}" + "～" + "#{task.end_date}" %></td>
-
+              <div class="task-font">
+                <td>
+                　<strong><%= link_to task.title, task_path(task.id) %></strong>
+                </td>
+                <td><%= task.priority %></td>
+                <td><%= task.status %></td>
+                <td><%= "#{task.start_date}" + "～" + "#{task.end_date}" %></td>
+              </div>
               <% if task.user == current_user %>
-                <!--　編集画面へ遷移するボタン-->
-                <!--<td width="70px">< %= link_to edit_task_path(task.id) do %><i class="fas fa-edit fa-2x"></i>< % end %></td>-->
-                <!--　削除するボタン-->
-                <!--<td width="70px">< %= link_to task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } do %>-->
-                <!--  <i class="fas fa-trash-alt fa-2x"></i>< % end %>-->
-                <!--</td>-->
                 <!--　編集画面へ遷移するボタン-->
                 <td width="250px"><%= link_to edit_task_path(task.id) do %><i class="fas fa-edit fa-2x"></i><% end %>
                 <!--　削除するボタン-->

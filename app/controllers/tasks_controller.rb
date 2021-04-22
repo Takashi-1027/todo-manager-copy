@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   def index
     # @tasks = Task.all
     @tasks = Task.rank(:row_order)
+    
     # @tasks = Task.order("row_order ASC")
       @label_list = Label.all
       @task = current_user.tasks.new

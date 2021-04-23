@@ -5,26 +5,24 @@
   <div scope="row">
     <div class="col">
       <table class="table table-hover table-resposive ">
-        <thead class="thead-color">
-          <tr>
-            <td></td>
-            <td>名前</td>
-            <td>紹介文</td>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
+        <div class="users">
+          <thead class="thead-color">
             <tr>
-              <td><%= attachment_image_tag user, :profile_image, fallback: "person01.jpg", size:"50x50"%></td>
-              <td><%= link_to user.name, user_path(user.id) %></td>
-              <td><%= user.introduction %></td>
-              <!--<td class="text-center">< %= routine_tasks.name %></td>-->
-
-              <!--NomethoErrorが出たから重要でないためあと回しにする-->
-              <!--<td>< %= render "routine_tasks/info", routine_task: @routine_task %></td>-->
+              <td></td>
+              <td>名前</td>
+              <td>紹介文</td>
             </tr>
-          <% end %>
-        </tbody>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= attachment_image_tag user, :profile_image, fallback: "person01.jpg", size:"50x50"%></td>
+                <td><%= link_to user.name, user_path(user.id) %></td>
+                <td><%= user.introduction %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </div>
       </table>
     </div>
   </div>

@@ -16,44 +16,46 @@
 <div class= "container" >
   <div class="row">
     <div class="col-md-6">
-      <%= form_with model: @task, local: true do |f| %>
-        <div class="form-group">
-          <%= f.label :title, "タイトル" %>
-          <%= f.text_field :title, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :details, "詳細" %>
-          <%= f.text_area :details, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :start_date, "開始日" %>
-          <%= f.date_field :start_date %>
-        </div>
-        <div class="form-group">
-          <%= f.label :end_date, "終了日" %>
-          <%= f.date_field :end_date %>
-        </div>
-        <div class="form-group">
-          <%= f.label :remind_at, "リマインド" %>
-          <%= f.date_field :remind_at %>
-        </div>
-        <div class="form-group">
-          <%= f.label :priority, "優先度" %>
-          <%= f.select :priority, options_for_select(Task.priorities.keys),{include_blank: "" } %>
-        </div>
-        <div class="form-group">
-          <%= f.label :status, "進捗状況" %>
-          <%= f.select :status, options_for_select(Task.statuses.keys), {include_blank: "" } %>
-        </div>
-        <%= render "tasks/label" %>
-        <br>
-        <p>※複数のラベルを付けたい場合は,単語と単語の間に<br><strong>半角スペース</strong>を記入してください</p>
-        <p>(例)野球 サッカー</p>
-        <%= f.text_field :label_name %>
-        <br>
-        <br>
-        <%= f.submit "登録", class: "btn btn-success"%>
-      <% end %>
+      <div class="task-new-edit">
+        <%= form_with model: @task, local: true do |f| %>
+          <div class="form-group">
+            <%= f.label :title, "タイトル" %>
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :details, "詳細" %>
+            <%= f.text_area :details, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :start_date, "開始日" %>
+            <%= f.date_field :start_date %>
+          </div>
+          <div class="form-group">
+            <%= f.label :end_date, "終了日" %>
+            <%= f.date_field :end_date %>
+          </div>
+          <div class="form-group">
+            <%= f.label :remind_at, "リマインド" %>
+            <%= f.date_field :remind_at %>
+          </div>
+          <div class="form-group">
+            <%= f.label :priority, "優先度" %>
+            <%= f.select :priority, options_for_select(Task.priorities.keys),{include_blank: "" } %>
+          </div>
+          <div class="form-group">
+            <%= f.label :status, "進捗状況" %>
+            <%= f.select :status, options_for_select(Task.statuses.keys), {include_blank: "" } %>
+          </div>
+          <%= render "tasks/label" %>
+          <br>
+          <p>※複数のラベルを付けたい場合は,単語と単語の間に<br><strong>半角スペース</strong>を記入してください</p>
+          <p>(例)野球 サッカー</p>
+          <%= f.text_field :label_name %>
+          <br>
+          <br>
+          <%= f.submit "登録", class: "btn btn-success"%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

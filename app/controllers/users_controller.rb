@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     unless User.find_by(id: params[:id]).nil?
       @user = User.find(params[:id])
       unless @user == current_user
-        redirect_to users_path
+      redirect_to users_path
       end
     else
       redirect_to users_path

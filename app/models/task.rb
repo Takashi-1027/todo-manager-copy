@@ -25,32 +25,32 @@ class Task < ApplicationRecord
 
 # ソート機能の定義
 # 昇順(asc)  : 0,1,2,3
-# 降順(desc) : 3,2,1,0
+# # 降順(desc) : 3,2,1,0
   scope :order_by_key, -> (selection){
     case selection
     when 'priority'
-     order(priority: :asc)
+    order(priority: :asc)
     when 'status'
-     order(status: :desc)
+    order(status: :desc)
     when 'new'
-     order(created_at: :desc)
+    order(created_at: :desc)
     when 'old'
-     order(created_at: :asc)
+    order(created_at: :asc)
     end }
 
   # def self.sort(selection)
-    # case selection
-    # when nil
-    #   return all
-    # when 'priority'
-    #   return order(priority: :asc)
-    # when 'status'
-    #   return order(status: :desc)
-    # when 'new'
-    #   return order(created_at: :desc)
-    # when 'old'
-    #   return order(created_at: :asc)
-    # end
+  #   case selection
+  #   when nil
+  #     return all
+  #   when 'priority'
+  #     return order(priority: :asc)
+  #   when 'status'
+  #     return order(status: :desc)
+  #   when 'new'
+  #     return order(created_at: :desc)
+  #   when 'old'
+  #     return order(created_at: :asc)
+  #   end
   # end
 
 

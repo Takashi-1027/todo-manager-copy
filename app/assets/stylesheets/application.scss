@@ -22,6 +22,27 @@
 // body {
 //   background-image: image-url("scott-graham-work.jpg");}
 
+//------------------------画像スライド------------------------//
+#slider{
+  height: 500px; /* ここの高さはいくつでも構いません */
+}
+
+.image1 {
+  background-image: image-url("slide_img1.jpg");
+}
+.image2 {
+  background-image: image-url("slide_img2.jpg");
+}
+.image3 {
+  background-image: image-url("slide_img3.jpg");
+}
+.image4 {
+  background-image: image-url("slide_img4.jpg");
+}
+.image5 {
+  background-image: image-url("slide_img5.jpg");
+}
+
 
 //----------エラーメッセージ----------//
 #error_explanation {

@@ -12,7 +12,6 @@ class TasksController < ApplicationController
       selection =  params.dig(:task, :keyword)
       # @tasks = Task.sort(selection)
       # @tasks = @tasks.where(user_id: current_user)
-
       @tasks = Task.where(user_id: current_user).order_by_key(selection)
       @sort = params[:task][:keyword]
     end

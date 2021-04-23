@@ -15,7 +15,7 @@
         <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td><%= attachment_image_tag user, :profile_image, fallback: "no-image-icon.jpg", size:"50x50"%></td>
+              <td><%= attachment_image_tag user, :profile_image, fallback: "person01.jpg", size:"50x50"%></td>
               <td><%= link_to user.name, user_path(user.id) %></td>
               <td><%= user.introduction %></td>
               <!--<td class="text-center">< %= routine_tasks.name %></td>-->

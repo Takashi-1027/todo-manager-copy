@@ -5,22 +5,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <!--Font Awesomeのkit-->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/c438d690f4.js" crossorigin="anonymous"></script>
+    <!--scrollreveal-->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP|Open+Sans&display=swap" rel="stylesheet">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div class="wrapper">
-      <%= render "layouts/header" %>
-        <main>
+    <%= render "layouts/header" %>
+      <main>
 
-        <%= yield %>
-        </main>
-    </div>
+
+      <%= yield %>
+      </main>
+    <% render "layouts/footer" %>
   </body>
-      <% render "layouts/footer" %>
 </html>

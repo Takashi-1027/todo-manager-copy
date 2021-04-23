@@ -44,6 +44,39 @@
 }
 
 
+header {
+  background: #333333;
+  color: #ffffff;
+  height: 50px;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+main {
+  background: #ffffff;
+  flex: 1;
+}
+
+// footer {
+//   background: #333333;
+//   color: #ffffff;
+//   height: 100px;
+// }
+
+// フッター
+// .footer {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100%;
+//   padding: 1% 0;
+//   background-color: #000000;
+// }
 //----------エラーメッセージ----------//
 #error_explanation {
   // border: solid 1px red;
@@ -58,11 +91,10 @@
 }
 
 //----------ヘッダー----------//
-
-main {
-  // height: calc(100vh - 100px);
-  height: 100vh;
-}
+// main {
+//   // height: calc(100vh - 100px);
+//   height: 100vh;
+// }
 
 // .wrapper{
 //     min-height: 100vh;
@@ -75,9 +107,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 50px;
+  width: 100%;
   padding: 1% 0;
-  background-color: #fff;
+  background-color: #6c757d;
 }
 // footer{
 //     width: 100%;

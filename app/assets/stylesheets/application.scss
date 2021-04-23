@@ -43,6 +43,18 @@
   background-image: image-url("slide_img5.jpg");
 }
 
+//----------ヘッダー----------//
+// main {
+//   // height: calc(100vh - 100px);
+//   height: 100vh;
+// }
+
+// .wrapper{
+//     min-height: 100vh;
+//     position: relative;/*←相対位置*/
+//     padding-bottom: 120px;/*←footerの高さ*/
+//     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+// }
 
 header {
   background: #333333;
@@ -62,21 +74,19 @@ main {
   flex: 1;
 }
 
-// footer {
-//   background: #333333;
-//   color: #ffffff;
-//   height: 100px;
-// }
 
-// フッター
-// .footer {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   height: 100%;
-//   padding: 1% 0;
-//   background-color: #000000;
-// }
+//----------フッター----------//
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  padding: 1% 0;
+  background-color: #6c757d;
+  color: #ffffff;
+}
+
 //----------エラーメッセージ----------//
 #error_explanation {
   // border: solid 1px red;
@@ -90,38 +100,6 @@ main {
   }
 }
 
-//----------ヘッダー----------//
-// main {
-//   // height: calc(100vh - 100px);
-//   height: 100vh;
-// }
-
-// .wrapper{
-//     min-height: 100vh;
-//     position: relative;/*←相対位置*/
-//     padding-bottom: 120px;/*←footerの高さ*/
-//     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
-// }
-//----------フッター----------//
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-  padding: 1% 0;
-  background-color: #6c757d;
-}
-// footer{
-//     width: 100%;
-//     background-color: #212121;
-//     color: #fff;
-//     text-align: center;
-//     padding: 30px 0;
-
-// position: absolute;/*←絶対位置*/
-//     bottom: 0; /*下に固定*/
-// }
 //----------ホーム画面----------//
 
 
@@ -141,7 +119,7 @@ main {
 .home {
   text-align: center;
   .home-text {
-    width: 70%;
+    width: 50%;
     height: 200px;
     margin: 0 auto;
     padding-top: 50px;

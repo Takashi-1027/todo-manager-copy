@@ -3,8 +3,8 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="offset-md-4 col-md-4 text-center">
-      <!--#タグリスト-->
+    <div class="offset-md-3 col-md-6 text-center my-3">
+        <h5>ラベルリスト</h5>
       <% @label_list.each do |list| %>
         <span>
           <%= link_to list.label_name, label_tasks_path(list.id) %>
@@ -14,8 +14,9 @@
       <br>
       <br>
       <!--#タグによって絞り込んだ投稿一覧-->
-      <%= "ラベルが ─ "%><%= @label.label_name %><%= " ─ の投稿一覧" %>
-      <br>
+      <%= "ラベルが ─ "%>
+        <span style="font-size: 25px;"><%= @label.label_name %></span>
+      <%= " ─ の投稿一覧" %>
       <br>
       <% @tasks.each do |task| %>
       <p>・<%= link_to task.title, task %><br></p>

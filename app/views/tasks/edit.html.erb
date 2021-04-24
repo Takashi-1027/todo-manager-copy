@@ -35,7 +35,13 @@
             <%= f.label :status, "進捗状況" %>
             <%= f.select :status, options_for_select(Task.statuses.keys), {include_blank: "" } %>
           </div>
-          <%= f.submit "更新", class: "btn btn-success"%>
+         <!--戻るボタン-->
+          <%= link_to tasks_path, class: "btn-style-delete" do %>
+            <i class="fas fa-backward fa-1x"></i>
+            <h7>戻る</h7>
+          <% end %>
+          <span>&nbsp;</span>
+          <%= f.submit "更新", class: "btn btn-success btn-sm" %>
         <% end %>
       </div>
     </div>

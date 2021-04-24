@@ -53,7 +53,13 @@
           <%= f.text_field :label_name %>
           <br>
           <br>
-          <%= f.submit "登録", class: "btn btn-success"%>
+          <!--戻るボタン-->
+          <%= link_to tasks_path, class: "btn-style-delete" do %>
+            <i class="fas fa-backward fa-1x"></i>
+            <h7>戻る</h7>
+          <% end %>
+          <span>&nbsp;</span>
+          <%= f.submit "登録", class: "btn btn-success btn-sm"%>
         <% end %>
       </div>
     </div>

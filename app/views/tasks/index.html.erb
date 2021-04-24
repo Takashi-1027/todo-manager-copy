@@ -26,27 +26,33 @@
             <%= f.submit '検索'  %>
           <% end %>
         <% end %>
+      </div>
+      <div class="task-seek my-3">
         <%= form_with model: @tasks, url: tasks_path, method: :get, local: true do |form| %>
           <%= form.select :keyword, sort_form(@sort) %>
           <%= form.submit "実行" %>
         <% end %>
-        <div class= "new-buttom">
-          <%= link_to new_task_path do %><i class="far fa-plus-square fa-2x"></i>
-            <h7>タスク追加</h7>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
-      <table class="table-sortable table table-hover table-inverse"
+    <div class="offset-md-1 col-md-10 text-right">
+      <%= link_to new_task_path do %><i class="far fa-plus-square fa-2x"></i>
+        <h7>タスク追加</h7>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="offset-md-1 col-md-10">
+      <table class="table-sortable table table-hover table-inverse text-center"
              style="margin-bottom: 70px;">
         <thead>
           <tr>
-            <th width= "250px">タイトル</th>
+            <th width= "250px">タイトル(<%= @tasks.count %>)</th>
             <th width= "250px">優先度</th>
             <th width= "250px">進捗状況</th>
             <th width= "250px">期間</th>
@@ -69,11 +75,17 @@
               </div>
               <% if task.user == current_user %>
                 <!--　編集画面へ遷移するボタン-->
-                <td width="250px"><%= link_to edit_task_path(task.id) do %><i class="fas fa-edit fa-2x"></i><% end %>
+                <td width="250px">
+                <%= link_to edit_task_path(task.id) do %>
+                  <i class="fas fa-edit fa-1x"></i>
+                  <h7>編集</h7>
+                <% end %>
                 <!--　削除するボタン-->
                 <span>&nbsp;</span>
                 <%= link_to task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } do %>
-                <i class="fas fa-trash-alt fa-2x"></i><% end %>
+                <h7 style="color: #e65050;">削除</h7>
+                <i class="fas fa-trash-alt fa-1x"></i>
+                <% end %>
                 </td>
             	<% end %>
             	</tr>

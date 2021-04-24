@@ -20,7 +20,7 @@
           </div>
       </div>
       <div>
-        <%= link_to "編集", edit_user_path(@user), class: "btn btn-success " %>
+        <%= link_to "編集", edit_user_path(@user), class: "btn btn-success btn-sm" %>
       </div>
     </div>
     <br>
@@ -56,7 +56,8 @@
                 <div id="destroy-button">
                   <td>
                     <%= link_to routine_task_path(routine_task), method: :delete, data: { confirm: '本当に消しますか？' } do %>
-                      <i class="fas fa-trash-alt fa-2x"></i>
+                      <h7 style="color: #e65050;">削除</h7>
+                      <i class="fas fa-trash-alt fa-1x"></i>
                     <% end %>
                   </td>
                 </div>

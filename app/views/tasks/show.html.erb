@@ -17,7 +17,7 @@
             <%= label :start_date, :end_date, "期間", class:"form-title"%> : <%= "#{@task.start_date}" + "～" + "#{@task.end_date}" %>
           </div>
           <div class="form-group">
-           <%= label :remind_at, "リマインド", class:"form-title"%> : <%= @task.remind_at %>
+           <%= label :remind_at, "リマインド", class:"form-title"%> : <%= @task.remind_at.strftime("%Y-%m-%d") %>
           </div>
           <div class="form-group">
             <%= label :priority, "優先度", class:"form-title"%> : <%= @task.priority %>
@@ -32,10 +32,16 @@
           <% if @task.user == current_user %>
             <div class= "task-details-buttons">
               <!--戻るボタン-->
-              <%= link_to tasks_path, class: "btn-style-delete" do %><i class="fas fa-backward fa-2x"></i><% end %>
+              <%= link_to tasks_path, class: "btn-style-delete" do %>
+                <i class="fas fa-backward fa-1x"></i>
+                <h7>戻る</h7>
+              <% end %>
               <span>&nbsp;</span>
               <!--　編集画面へ遷移するボタン-->
-              <%= link_to edit_task_path(@task), class: "btn-style" do %><i class="fas fa-edit fa-2x"></i><% end %>
+              <%= link_to edit_task_path(@task), class: "btn-style" do %>
+                <h7>編集</h7>
+                <i class="fas fa-edit fa-1x"></i>
+              <% end %>
             </div>
           <% end %>
         </div>

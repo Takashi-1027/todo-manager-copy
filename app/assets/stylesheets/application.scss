@@ -24,7 +24,7 @@
 
 //------------------------画像スライド------------------------//
 #slider{
-  height: 600px; /* ここの高さはいくつでも構いません */
+  height: 400px; /* ここの高さはいくつでも構いません */
 }
 
 .image1 {
@@ -41,6 +41,14 @@
 }
 .image5 {
   background-image: image-url("slide_img5.jpg");
+}
+
+.logo-image {
+  background-image: image-url("Todomanager-logo.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 50px;
+  width : 50px;
 }
 
 //----------ヘッダー----------//

@@ -1,15 +1,18 @@
 class Notification < ApplicationRecord
   belongs_to :task, optional: true
 
-  def reminder
-    if task.remind_at - Date.today == '3'
-      puts "3日前ですよ！"
-    elsif task.remind_at - Date.today == '2'
-      puts "2日前ですよ！"
-    elsif task.remind_at - Date.today == '1'
-      puts "1日前ですよ！"
-    elsif task.remind_at - Date.today == '0'
-      puts "当日ですよ！"
+  def self.notification
+    Task.all.each do |task|
+      # タスクの期日（リマインダー）が近づいたら通知する
+      if task.remind_at - Date.today == '3'
+        Notification.create(action: "リマインダー", status: "未読")
+      elsif task.remind_at - Date.today == '2'
+        Notification.create(action: "リマインダー", status: "未読")
+      elsif task.remind_at - Date.today == '1'
+        Notification.create(action: "リマインダー", status: "未読")
+      elsif task.remind_at - Date.today == '0'
+        Notification.create(action: "リマインダー", status: "未読")
+      end
     end
   end
 end

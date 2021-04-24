@@ -18,3 +18,27 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+require File.expand_path(File.dirname(__FILE__) + "/environment")
+rails_env = Rails.env.to_sym
+rails_root = Rails.root.to_s
+
+# デフォルトは本番環境になる為、明示的に開発環境を指定する
+set :environment, rails_env
+set :output, "#{rails_root}/log/cron.log"
+# env :PATH, ENV['PATH'] # 絶対パスから相対パス指定
+# set :output, 'log/cron.log'  # ログの出力先ファイルを設定
+# set :environment, :development # 環境を設定
+
+# 毎週末にタスクで定義した set_time_sale を実行する
+every 1.days, at: '10:00 am' do
+  begin
+    runner "Notification.self.notification"
+  end
+end
+
+every 2.minute do
+  begin
+    runner "Notification.self.notification"
+  end
+end

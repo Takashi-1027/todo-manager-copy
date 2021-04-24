@@ -15,7 +15,7 @@
         </div>
     </div>
     <!--<div class="col-xs-6 col-sm-6 col-mg-6">-->
-    <div class="col-mg-3 ml-auto">
+    <div class="col-mg-3 ml-auto my-4">
       <div class="task-seek">
         <% if user_signed_in? %>
           <%= form_with(url: seek_path, method: :get, local: true) do |f| %>
@@ -30,17 +30,18 @@
           <%= form.select :keyword, sort_form(@sort) %>
           <%= form.submit "実行" %>
         <% end %>
+        <div class= "new-buttom">
+          <%= link_to new_task_path do %><i class="far fa-plus-square fa-3x"></i><% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div class= "new-buttom">
-    <%= link_to new_task_path do %><i class="far fa-plus-square fa-3x"></i><% end %>
-</div>
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <table class="table-sortable table table-hover table-inverse">
+      <table class="table-sortable table table-hover table-inverse"
+             style="margin-bottom: 70px;">
         <thead>
           <tr>
             <th width= "250px">タイトル</th>

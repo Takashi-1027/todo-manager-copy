@@ -3,7 +3,7 @@
 </div>
 <div class="container">
   <div scope="row">
-    <div class="col">
+    <div class="offset-md-2 col-md-8">
       <table class="table table-hover table-resposive ">
         <div class="users">
           <thead class="thead-color">
@@ -17,7 +17,7 @@
             <% @users.each do |user| %>
               <tr>
                 <td><%= attachment_image_tag user, :profile_image, fallback: "person01.jpg", size:"50x50"%></td>
-                <td><%= link_to user.name, user_path(user.id) %></td>
+                <td style="white-space:nowrap;"><%= link_to user.name, user_path(user.id) %></td>
                 <td><%= user.introduction %></td>
               </tr>
             <% end %>

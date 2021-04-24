@@ -38,15 +38,16 @@ li {
 
 .page {
   position: relative;
-  height: 30vh;
+  height: 20vh;
 }
 
 .target {
   @include positionCenter();
-  font-size: 100px;
+  font-size: 50px;
   font-weight: bold;
   font-family: Noto Sans JP;
   color: #6c757d;
+  white-space: nowrap;
 }
 //----------空白を入れる----------//
 

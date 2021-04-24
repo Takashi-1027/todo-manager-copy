@@ -50,6 +50,7 @@ $(document).ready(function () {
 });
 
 //------------------------scrollreveal------------------------//
+//------------------------文字がふわって出る機能------------------------//
 $(function(){
 ScrollReveal().reveal('.text', {
   reset: true,

@@ -11,7 +11,8 @@ module TodoManager
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
-    config.paths.add 'lib', eager_load: true  # リマインダーの通知
+    # 作製したbatchディレクトリ内のファイルを読み込んでくれるようにする。
+    config.paths.add 'lib', eager_load: true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

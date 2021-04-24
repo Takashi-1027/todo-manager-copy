@@ -30,8 +30,12 @@ Rails.application.routes.draw do
   # タスクの検索に使用している。
   get 'seek', to: 'seeks#seek'
 
-  resources :notifications, only: [:index, :show, :destroy]
-  delete 'notifications/destroy_all' , to: 'notifications#destroy_all'
+  # resources :notifications, only: [:index, :show, :destroy, :destroy_all]
+  # delete 'notifications/destroy_all' , to: 'notifications#destroy_all'
+
+  resources :notifications do
+    delete 'destroy_all'
+  end
 
   # 楽天APIでの書籍検索に利用している。
   get 'books/search'

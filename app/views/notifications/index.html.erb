@@ -2,17 +2,53 @@
   <h4>通知一覧</h4>
 </div>
 
-<div class="container">
+<div class="container my-3">
   <div class="row">
-    <div class="col-md-12 text-center">
+    <div class="offset-md-2 col-md-8 text-right">
+    <!--< %= link_to notification_destroy_all_path, method: :delete, data: { confirm: '全削除しますか？' } do %>-->
+    <!--    <i class="fas fa-dumpster-fire fa-2x"></i>-->
+    <!--    <h6>全削除</h6>-->
+    <!--< % end %>-->
+    </div>
+  </div>
+</div>
+<div class="container my-3">
+  <div class="row">
+    <div class="offset-md-2 col-md-8 text-center">
       <table class="table-sortable table table-hover table-inverse">
-        <%= @say %>
-        <% @notifications.each do |n| %>
-        <% n.action %>
-        <% n.checked %>
-        <%= link_to task_path(task), method: :delete, data: { confirm: '本当に消しますか？' } do %>
-        <i class="fas fa-trash-alt fa-2x"></i><% end %>
-        <% end %>
+        <%#= @say %>
+        <thead>
+            <tr>
+              <td width="100px"></td>
+              <td width="300px" style="white-space: nowrap;">タスク名</td>
+              <td width="300px">通知内容</td>
+              <td width="300px">通知日</td>
+              <td></td>
+            </tr>
+        </thead>
+        <tbody>
+          <% @notifications.each do |notification| %>
+          <tr>
+              <% notification.checked ? '既読' : '未読' %>
+            <td>
+              <% if notification.checked %>
+                <i>既読</i>
+              <% else %>
+                <i style="color: #e65050;">未読</i>
+              <% end %>
+            </td>
+            <td><%=link_to notification.task.title, notification_path(notification.id) %></td>
+            <td><%= notification.action %></td>
+            <td><%= notification.created_at.strftime("%Y-%m-%d / %H:%M:%S") %></td>
+            <!--削除ボタン-->
+            <td>
+              <%= link_to notification_path(notification.id), method: :delete, data: { confirm: '本当に消しますか？' } do %>
+                <i class="fas fa-trash-alt fa-1x"></i>
+              <% end %>
+            </td>
+          <% end %>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

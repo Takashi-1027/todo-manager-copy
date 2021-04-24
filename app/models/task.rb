@@ -9,6 +9,7 @@ class Task < ApplicationRecord
   validates :status, presence: true
   validate :start_end_check
 
+
   # 優先ステータス
   enum priority: {最高: 0, 高: 1, 中: 2 , 低: 3}
 

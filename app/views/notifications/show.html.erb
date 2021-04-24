@@ -1,3 +1,42 @@
 <div class="title">
   <h4>通知詳細</h4>
 </div>
+
+<div class= "container my-3">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="modal-body task-show">
+          <div class="form-group">
+            <%= label :task_id, "タイトル", class:"form-title"%> : <%= @notification.task.title %>
+          </div>
+          <div class="form-group">
+            <%= label :action, "通知内容", class:"form-title"%> : <%= @notification.action %>
+          </div>
+           <%= label :created_at, "通知日", class:"form-title"%> : <%= @notification.created_at.strftime("%Y-%m-%d / %H:%M:%S") %>
+          <!--<div class="form-group">-->
+          <!--  < %= label :checked, "未読/既読", class:"form-title"%>-->
+          <!--  < % if @notification.checked == true%>-->
+          <!--    ：既読-->
+          <!--  < % else %>-->
+          <!--    ：未読-->
+          <!--  < % end %>-->
+          <!--</div>-->
+          <br>
+          <br>
+          <% if @notification.task.user == current_user %>
+            <div class= "task-details-buttons">
+              <!--戻るボタン-->
+            <%= link_to notifications_path do %>
+              <i class="fas fa-backward fa-1x"></i>
+              <h7>戻る</h7>
+            <% end %>
+              　<!--削除ボタン-->
+            <%= link_to notification_path, method: :delete, data: { confirm: '本当に消しますか？' } do %>
+              <h7 style="color: #e65050;">削除</h7>
+              <i class="fas fa-trash-alt fa-1x"></i>
+            <% end %>
+          <% end %>
+
+      </div>
+    </div>
+</div>

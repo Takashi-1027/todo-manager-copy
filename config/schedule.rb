@@ -19,26 +19,27 @@
 
 # Learn more: http://github.com/javan/whenever
 
-require File.expand_path(File.dirname(__FILE__) + "/environment")
-rails_env = Rails.env.to_sym
-rails_root = Rails.root.to_s
-
+# rails_env = Rails.env.to_sym
+# rails_root = Rails.root.to_s
 # デフォルトは本番環境になる為、明示的に開発環境を指定する
-set :environment, rails_env
-set :output, "#{rails_root}/log/cron.log"
-# env :PATH, ENV['PATH'] # 絶対パスから相対パス指定
 # set :output, 'log/cron.log'  # ログの出力先ファイルを設定
+# set :output, "#{rails_root}/log/cron.log"
+# env :PATH, ENV['PATH'] # 絶対パスから相対パス指定
 # set :environment, :development # 環境を設定
 
-# 毎週末にタスクで定義した set_time_sale を実行する
-every 1.days, at: '10:00 am' do
-  begin
-    runner "Notification.self.notification"
-  end
-end
 
-every 2.minute do
+require File.expand_path(File.dirname(__FILE__) + "/environment")
+# rails_env = Rails.env.to_sym
+# set :environment, rails_env
+# set :output, 'log/cron.log'
+
+rails_env = ENV['RAILS_ENV'] || :development
+# cronを実行する環境変数をセット
+set :environment, rails_env
+# cronのログの吐き出し場所
+set :output, "#{Rails.root}/log/cron.log"
+every 1.days, at: '10:00 pm' do
   begin
-    runner "Notification.self.notification"
+    runner "Batch::Notification.send"
   end
 end

@@ -4,7 +4,7 @@ $(function(){
     items: '.item',
 
     // Ajaxで並び順のデータをコントローラーに送信
-    update(e, ui) {
+    update(e, ui){
       let item = ui.item;
       let item_data = item.data();
       let params = { _method: 'put' };

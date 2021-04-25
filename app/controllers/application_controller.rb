@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :check_notifications
+
+  def check_notifications
+    tasks = Task.where(user_id: current_user).pluck(:id)
+    @notifications = Notification.where(task_id: tasks)
+  end
 
   protected
 
@@ -16,4 +22,5 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
 end

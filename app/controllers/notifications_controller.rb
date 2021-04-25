@@ -2,10 +2,8 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    # @user = current_user
-    # @notifications = nil
-    @notifications = Notification.all
-    # @notification = Notification.find(params[:id])
+    tasks = Task.where(user_id: current_user).pluck(:id)
+    @notifications = Notification.where(task_id: tasks)
   end
 
   def show
@@ -21,7 +19,9 @@ class NotificationsController < ApplicationController
 
   def destroy_all
     # 通知を全削除
-    @notifications = current_user.notifications.destroy_all
+    tasks = Task.where(user_id: current_user).pluck(:id)
+    @notifications = Notification.where(task_id: tasks)
+    @notifications.destroy_all
     redirect_to notifications_path
   end
 

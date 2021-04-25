@@ -5,24 +5,29 @@
 <div class="container my-3">
   <div class="row">
     <div class="offset-md-2 col-md-8 text-right">
-    <!--< %= link_to notification_destroy_all_path, method: :delete, data: { confirm: '全削除しますか？' } do %>-->
-    <!--    <i class="fas fa-dumpster-fire fa-2x"></i>-->
-    <!--    <h6>全削除</h6>-->
-    <!--< % end %>-->
+
+    <%= link_to notification_destroy_all_path(current_user), method: :delete, data: { confirm: '全削除しますか？' } do %>
+        <i class="fas fa-dumpster-fire fa-2x"></i>
+        <h6>全削除</h6>
+    <% end %>
+
     </div>
   </div>
 </div>
 <div class="container my-3">
   <div class="row">
     <div class="offset-md-2 col-md-8">
-      <h6>通知数：<%= @notifications.count %> <i class="fas fa-thumbtack"></i></h6>
+
+
+      <h6>通知数 : <%= @notifications.count %><i class="fas fa-thumbtack"></i></h6>
+      <h6>(未読/既読)(<%= @notifications.where(checked: false).count%> / <%= @notifications.where(checked: true).count%>)</h6>
       <table class="table-sortable table table-hover table-inverse text-center">
         <%#= @say %>
         <thead>
             <tr>
               <td width="100px"></td>
               <td width="300px" style="white-space: nowrap;">タスク名</td>
-              <td width="300px">通知内容</td>
+              <td width="300px">通知の種類</td>
               <td width="300px">通知日</td>
               <td width="200px"></td>
             </tr>

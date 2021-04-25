@@ -38,7 +38,14 @@ rails_env = ENV['RAILS_ENV'] || :development
 set :environment, rails_env
 # cronのログの吐き出し場所
 set :output, "#{Rails.root}/log/cron.log"
+
 every 1.days, at: '10:00 pm' do
+  begin
+    runner "Batch::Notification.send"
+  end
+end
+
+every 1.minute do
   begin
     runner "Batch::Notification.send"
   end

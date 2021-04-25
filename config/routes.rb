@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  # get 'notifications/index'
-  # get 'notifications/show'
-  # get 'notifications/destroy'
-  # get 'notifications/destroy-all'
   # devise_for :users <- ゲストユーザーが未実装の時のコード
 
   # ゲストとログイン機能実装

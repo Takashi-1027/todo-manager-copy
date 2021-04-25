@@ -20,7 +20,7 @@
 
 
       <h6>通知数 : <%= @notifications.count %><i class="fas fa-thumbtack"></i></h6>
-      <h6>(未読/既読)(<%= @notifications.where(checked: false).count%> / <%= @notifications.where(checked: true).count%>)</h6>
+      <h6>(未読 : <%= @notifications.where(checked: false).count%>) / (既読 : <%= @notifications.where(checked: true).count%>)</h6>
       <table class="table-sortable table table-hover table-inverse text-center">
         <%#= @say %>
         <thead>

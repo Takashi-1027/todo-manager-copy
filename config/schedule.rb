@@ -45,8 +45,8 @@ every 1.days, at: '10:00 pm' do
   end
 end
 
-every 1.minute do
-  begin
-    runner "Batch::Notification.send"
-  end
-end
+# every 1.minute do
+#   begin
+#     runner "Batch::Notification.send"
+#   end
+# end

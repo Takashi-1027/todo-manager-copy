@@ -17,26 +17,24 @@
 
 ### ターゲットユーザ
 
-・大学生～社会人　・タスク管理で困っている人
+- 大学生～社会人　
+- タスク管理で困っている人
 
 ### 主な利用シーン
 
-・現在抱え込んでいる仕事を整理するとき
-・仕事の優先度かつ重要度を整理し列挙していき、それに優先順位をつけて消化していく。
+- 現在抱え込んでいる仕事を整理するとき
+- 仕事の優先度かつ重要度を整理し列挙していき、それに優先順位をつけて消化していく。
 
 ## 設計書
 
-ER図：https://drive.google.com/file/d/1OQ7Ak-fqPFHbh-Fa7lKvt2DCVH11L6Jb/view?usp=sharing
-
-UI Flow：https://drive.google.com/file/d/1SIBPu2x72-us9BFSoZl6sk2shbtMc5Vh/view?usp=sharing
-
-アプリケーション詳細設計書：https://docs.google.com/spreadsheets/d/1-Ch4CTX1JrXjoLbtWeOl-cA6z_g6xoBxtTTk17bNNIY/edit?usp=sharing
-
-テーブル定義書：https://docs.google.com/spreadsheets/d/1-DCa3gL04Oxjp_IhGsX23AdsJ3ZxbTr9n2qP9sNSOoc/edit?usp=sharing
+- ER図：https://drive.google.com/file/d/1OQ7Ak-fqPFHbh-Fa7lKvt2DCVH11L6Jb/view?usp=sharing
+- UI Flow：https://drive.google.com/file/d/1SIBPu2x72-us9BFSoZl6sk2shbtMc5Vh/view?usp=sharing
+- アプリケーション詳細設計書：https://docs.google.com/spreadsheets/d/1-Ch4CTX1JrXjoLbtWeOl-cA6z_g6xoBxtTTk17bNNIY/edit?usp=sharing
+- テーブル定義書：https://docs.google.com/spreadsheets/d/1-DCa3gL04Oxjp_IhGsX23AdsJ3ZxbTr9n2qP9sNSOoc/edit?usp=sharing
 
 ## チャレンジ要素一覧
 
-https://docs.google.com/spreadsheets/d/1MfdOATFe4BRWgV1_mfm4EnYGPeaxjjGbVFssC7BUEvE/edit?usp=sharing
+- https://docs.google.com/spreadsheets/d/1MfdOATFe4BRWgV1_mfm4EnYGPeaxjjGbVFssC7BUEvE/edit?usp=sharing
 
 ## 開発環境
 
@@ -48,8 +46,8 @@ https://docs.google.com/spreadsheets/d/1MfdOATFe4BRWgV1_mfm4EnYGPeaxjjGbVFssC7BU
 
 ## 使用素材
 
-・ICOOON MONO
-・designevo
-・Unsplash
-・ぱくたそ
-・いらすとや
+- ICOOON MONO
+- designevo
+- Unsplash
+- ぱくたそ
+- いらすとや

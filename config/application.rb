@@ -10,7 +10,9 @@ module TodoManager
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-    
+
+    config.autoload_paths += Dir["#{config.root}/lib"]
+    config.eager_load_paths += Dir["#{config.root}/lib/**/"]
     # 作製したbatchディレクトリ内のファイルを読み込んでくれるようにする。
     config.paths.add 'lib', eager_load: true
 
@@ -18,7 +20,7 @@ module TodoManager
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    
+
     # 東京時間に直す
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local

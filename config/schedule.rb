@@ -39,13 +39,19 @@ set :environment, rails_env
 # cronのログの吐き出し場所
 set :output, "#{Rails.root}/log/cron.log"
 
-every 1.days, at: '10:00 pm' do
+every 1.days, at: '22:00' do
   begin
     runner "Batch::Notification.send"
   end
 end
 
-every 5.minute do
+every 1.days, at: '9:00' do
+  begin
+    runner "Batch::Notification.send"
+  end
+end
+
+every 30.minute do
   begin
     runner "Batch::Notification.send"
   end

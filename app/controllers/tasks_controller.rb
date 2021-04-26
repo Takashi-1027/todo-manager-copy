@@ -76,8 +76,8 @@ class TasksController < ApplicationController
 
   private
 
-    def task_params
-      params.require(:task).permit(:user_id, :title, :details, :priority, :remind_at, :start_date, :end_date, :status, :row_order_position)
-    end
-    # ドラッグ＆ドロップの実装のために:row_order_positionを追加
+  def task_params
+    params.require(:task).permit(:user_id, :title, :details, :priority, :remind_at, :start_date, :end_date, :status, :row_order_position)
+  end
+  # ドラッグ＆ドロップの実装のために:row_order_positionを追加
 end

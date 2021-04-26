@@ -5,19 +5,26 @@
 
 <div class= "container" >
   <div class="row">
-    <div class="col-md-6">
+    <div class="offset-md-2 col-md-6">
         <div class="modal-body task-show">
           <div class="form-group">
             <%= label :title, "タイトル", class:"form-title"%> : <%= @task.title %>
           </div>
-          <div class="form-group">
-            <%= label :details, "詳細", class:"form-title"%> : <%= @task.details %>
+          <div class="form-group ">
+          <div >
+            <%= label :details, "詳細", class:"form-title"%> : <br><%= @task.details %>
+          </div>
           </div>
           <div class="form-group">
             <%= label :start_date, :end_date, "期間", class:"form-title"%> : <%= "#{@task.start_date}" + "～" + "#{@task.end_date}" %>
           </div>
           <div class="form-group">
-           <%= label :remind_at, "リマインド", class:"form-title"%> : <%= @task.remind_at.strftime("%Y-%m-%d") %>
+          <%= label :remind_at, "リマインド", class:"form-title"%> :
+            <% if @task.remind_at.blank? %>
+              <% nil %>
+            <% else %>
+              <%= @task.remind_at.strftime("%Y-%m-%d") %>
+            <% end %>
           </div>
           <div class="form-group">
             <%= label :priority, "優先度", class:"form-title"%> : <%= @task.priority %>

@@ -7,27 +7,26 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-          <li><%= link_to " About ", home_about_path, class: "fas fa-book-open nav-link text-light" %></li>
-          <li><%= link_to " マイページ ", user_path(current_user), class: "fas fa-user nav-link text-light" %></li>
-          <li><%= link_to " ユーザー ", users_path, class: "fas fa-users nav-link text-light" %></li>
-          <li><%= link_to " タスク ", tasks_path(user_id: current_user.id), class: "fas fa-tasks nav-link text-light" %></li>
-          <% if @notifications.blank? || @notifications.where(checked: false).count == 0 %>
-            <li><%= link_to " 通知 ", notifications_path, class: "far fa-bell nav-link text-light" %>
-                <span style="color: #f8f9fa;">(未読 : <%= @notifications.where(checked: false).count%>)</span></li>
+          <% if user_signed_in? %>
+            <!--<li>< %= link_to " About ", home_about_path, class: "fas fa-book-open nav-link text-light" %></li>-->
+            <li><%= link_to " マイページ ", user_path(current_user), class: "fas fa-user nav-link text-light" %></li>
+            <li><%= link_to " ユーザー ", users_path, class: "fas fa-users nav-link text-light" %></li>
+            <li><%= link_to " タスク ", tasks_path(user_id: current_user.id), class: "fas fa-tasks nav-link text-light" %></li>
+            <% if @notifications.blank? || @notifications.where(checked: false).count == 0 %>
+              <li><%= link_to " 通知 ", notifications_path, class: "far fa-bell nav-link text-light" %>
+                  <span style="color: #f8f9fa;">(未読 : <%= @notifications.where(checked: false).count%>)</span></li>
+            <% else %>
+              <li><%= link_to " 通知 ", notifications_path, class: "fas fa-bell nav-link text-warning" %>
+                  <span style="color: #ffc107;">(未読 : <%= @notifications.where(checked: false).count%>)</span></li>
+            <% end %>
+            <li><%= link_to " 楽天書籍検索 ", books_search_path, class: "fab fa-r-project nav-link text-light" %></li>
+            <li><%= link_to " ログアウト ", destroy_user_session_path, method: :delete,class: "fas fa-sign-out-alt nav-link text-light" %></li>
           <% else %>
-            <li><%= link_to " 通知 ", notifications_path, class: "fas fa-bell nav-link text-warning" %>
-                <span style="color: #ffc107;">(未読 : <%= @notifications.where(checked: false).count%>)</span></li>
+            <!--<li>< %= link_to " About ", home_about_path, class: "fas fa-book-open nav-link text-light" %></li>-->
+            <li><%= link_to " 新規登録 ", new_user_registration_path, class: "fas fa-user-plus nav-link text-light" %></li>
+            <li><%= link_to " ログイン ", new_user_session_path , class: "fas fa-sign-in-alt nav-link text-light" %></li>
+            <li><%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class: "fas fas fa-door-open nav-link text-light" %></li>
           <% end %>
-          <li><%= link_to " 楽天書籍検索 ", books_search_path, class: "fab fa-r-project nav-link text-light" %></li>
-          <!--<li class= "far fa-calendar-alt nav-link text-light fx-1" > カレンダー </li>-->
-          <li><%= link_to " ログアウト ", destroy_user_session_path, method: :delete,class: "fas fa-sign-out-alt nav-link text-light" %></li>
-        <% else %>
-          <li><%= link_to " About ", home_about_path, class: "fas fa-book-open nav-link text-light" %></li>
-          <li><%= link_to " 新規登録 ", new_user_registration_path, class: "fas fa-user-plus nav-link text-light" %></li>
-          <li><%= link_to " ログイン ", new_user_session_path , class: "fas fa-sign-in-alt nav-link text-light" %></li>
-          <li><%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class: "fas fas fa-door-open nav-link text-light" %></li>
-        <% end %>
         </ul>
       </div>
     </div>

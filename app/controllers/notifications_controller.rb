@@ -25,10 +25,9 @@ class NotificationsController < ApplicationController
     redirect_to notifications_path
   end
 
-   private
+  private
 
-    def notification_params
-      params.require(:notification).permit(:task_id, :action, :checked)
-    end
-
+  def notification_params
+    params.require(:notification).permit(:task_id, :action, :checked)
+  end
 end

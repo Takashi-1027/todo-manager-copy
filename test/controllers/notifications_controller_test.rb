@@ -17,8 +17,7 @@ class NotificationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get destroy-all" do
-    get notifications_destroy-all_url
+    get notifications_destroy_all_url
     assert_response :success
   end
-
 end

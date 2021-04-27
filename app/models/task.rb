@@ -9,7 +9,6 @@ class Task < ApplicationRecord
   validates :status, presence: true
   validate :start_end_check
 
-
   # 優先ステータス
   enum priority: {最高: 0, 高: 1, 中: 2 , 低: 3}
 
@@ -17,27 +16,25 @@ class Task < ApplicationRecord
   # enum status: {未着手: 0, 着手中: 1, 保留: 2 , 遅れ: 3 , 完了: 4}
   enum status: {未着手: 0, 保留: 1, 遅れ: 2 , 着手中: 3 , 完了: 4}
 
-
-
   # ドラッグ&ドロップに関係するソース
   include RankedModel
   ranks :row_order
 
-
-# ソート機能の定義
-# 昇順(asc)  : 0,1,2,3
-# # 降順(desc) : 3,2,1,0
-  scope :order_by_key, -> (selection){
+  # ソート機能の定義
+  # 昇順(asc) : 0,1,2,3
+  # 降順(desc) : 3,2,1,0
+  scope :order_by_key, -> (selection) {
     case selection
     when 'priority'
-    order(priority: :asc)
+      order(priority: :asc)
     when 'status'
-    order(status: :desc)
+      order(status: :desc)
     when 'new'
-    order(created_at: :desc)
+      order(created_at: :desc)
     when 'old'
-    order(created_at: :asc)
-    end }
+      order(created_at: :asc)
+    end
+  }
 
   # def self.sort(selection)
   #   case selection
@@ -53,7 +50,6 @@ class Task < ApplicationRecord
   #     return order(created_at: :asc)
   #   end
   # end
-
 
   def save_label(sent_labels)
     current_labels = self.labels.pluck(:label_name) unless self.labels.nil?
@@ -78,6 +74,5 @@ class Task < ApplicationRecord
       end
     end
   end
-
 
 end

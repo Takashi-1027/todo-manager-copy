@@ -9,7 +9,7 @@ class TasksController < ApplicationController
       @task = current_user.tasks.new
       @sort = nil
     if params[:task]
-      selection =  params.dig(:task, :keyword)
+      selection = params.dig(:task, :keyword)
       # @tasks = Task.sort(selection)
       # @tasks = @tasks.where(user_id: current_user)
       @tasks = Task.where(user_id: current_user).order_by_key(selection)
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
   def sort
     task = Task.find(params[:task_id])
     task.update(task_params)
-    logger.debug("更新しました")                                        #ソートしたときのログを表示する。
+    logger.debug("更新しました") # ソートしたときのログを表示する。
     logger.debug("row_orderの値" + task_params["row_order_position"])
     head :ok # アクション実行後にViewをレンダリングしたくない時に使う
   end

@@ -70,7 +70,7 @@ class Task < ApplicationRecord
   def start_end_check
     if start_date.present? && end_date.present?
       if self.start_date > self.end_date
-        errors.add(:end_date, "は開始日より前の日付で登録できません。")
+        errors.add(:end_date, "cannot be registered as a date before the start date.") # 終了日は開始日より前の日付で登録できません。
       end
     end
   end

@@ -3,7 +3,7 @@ class NotificationsController < ApplicationController
 
   def index
     tasks = Task.where(user_id: current_user).pluck(:id)
-    @notifications = Notification.where(task_id: tasks)
+    @notifications = Notification.where(task_id: tasks).order(created_at: "DESC")
   end
 
   def show
